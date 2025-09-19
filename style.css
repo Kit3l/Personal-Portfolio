@@ -117,3 +117,36 @@ p {
 header p {
   text-align: center;
 }
+/* Project Card */
+.project {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Project Buttons */
+.proj-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #667eea;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.proj-btn:hover {
+  background: #764ba2;
+  transform: scale(1.05);
+}
