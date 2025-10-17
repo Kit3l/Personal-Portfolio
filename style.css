@@ -229,3 +229,105 @@ footer {
   transform: scale(1.05);
   box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
 }
+/* --- HERO SECTION ENHANCEMENTS --- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.5s ease forwards 0.3s;
+}
+
+.highlight {
+  color: #ffef5c; /* subtle golden highlight */
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.5s ease forwards 0.6s;
+}
+
+/* Background Animation */
+header {
+  background: linear-gradient(120deg, #667eea, #764ba2, #667eea);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth gradient movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* =============================
+   TAGLINE STYLING + ANIMATION
+   (Paste near the end of style.css)
+============================= */
+
+/* Ensure smooth behavior for anchor scrolling (optional if already present) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tagline: elegant serif, bold & italic, subtle color + shadow */
+.hero-tagline {
+  font-weight: 600;                      /* bold */
+  font-style: italic;                    /* italic */
+  font-family: 'Playfair Display', serif;/* elegant serif font */
+  font-size: 1.3rem;                     /* size you can tweak */
+  line-height: 1.8;                      /* roomy line height */
+  color: #f0eaff;                        /* soft contrast against hero bg */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* subtle depth */
+  margin: 0 0 25px 0;
+  opacity: 0;                            /* start hidden so animation can show */
+  transform: translateY(20px);           /* start slightly lower */
+  animation: fadeInUp 1.8s cubic-bezier(.2,.9,.2,1) forwards 0.6s; /* duration, easing, delay */
+}
+
+/* Fade-up keyframes used by the tagline */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.2s ease forwards 0.2s; /* earlier delay than tagline */
+}
