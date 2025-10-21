@@ -812,3 +812,34 @@ html {
 body {
   padding-top: 70px;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --nav-offset: 70px;
+}
+
+header, section, footer {
+  scroll-margin-top: var(--nav-offset);
+}
+
+#footer {
+  scroll-margin-top: calc(var(--nav-offset) + 10px);
+}
+.nav-logo {
+  font-family: 'UnifrakturCook', 'Old English Text MT', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #D4AF37;            /* gold */
+  letter-spacing: 2px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin: 0;
+  text-decoration: none;     /* removes underline */
+  cursor: pointer;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+  color: #b8962e;            /* slightly darker gold on hover */
+}
