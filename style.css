@@ -658,4 +658,157 @@ html {
   font-weight: 800;
   letter-spacing: 0.5px;
 }
+/* ====================================
+   NAVIGATION BAR — Slim, Elegant, Branded
+==================================== */
 
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff; /* White background */
+  color: #5D3FD3;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  height: 60px; /* Compact height */
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo — Gothic font with gold color */
+.nav-logo {
+  font-family: 'UnifrakturCook', 'Old English Text MT', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #D4AF37; /* Gold */
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+  margin: 0;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: #5D3FD3;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  font-size: 0.9rem;
+}
+
+.nav-links li a:hover {
+  color: #3b26a2;
+  border-bottom: 2px solid #3b26a2;
+}
+
+/* Body spacing to prevent navbar overlap */
+body {
+  padding-top: 70px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+/* Smooth scroll for all anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* NAVIGATION BAR — Slim, Elegant, Branded */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  color: #5D3FD3;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  height: 60px;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo — Gothic font with gold color */
+.nav-logo {
+  font-family: 'UnifrakturCook', 'Old English Text MT', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #D4AF37; /* Gold */
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+  margin: 0;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: #5D3FD3;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  font-size: 0.9rem;
+}
+
+.nav-links li a:hover {
+  color: #3b26a2;
+  border-bottom: 2px solid #3b26a2;
+}
+
+/* Add spacing to prevent overlap */
+body {
+  padding-top: 70px;
+}
