@@ -7,13 +7,14 @@
   <title>Hillary Kitel | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body id="top">
+<body>
   <!-- =============================
      NAVIGATION BAR
 ============================= -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="#top" class="nav-logo">𝕳𝕶</a>
+
     <ul class="nav-links">
       <li><a href="#about">About Me</a></li>
       <li><a href="#projects">My Projects</a></li>
@@ -28,70 +29,75 @@
   <div class="hero">
     <img src="Images/profile.jpg" alt="Hillary Kitel" class="profile-pic">
     <h1 class="hero-title">Hi, I’m <span class="highlight">Hillary Kitel</span></h1>
-    <p class="hero-tagline">Communications Strategist, Digital Storyteller & The solution to all your IT needs</p>
+    <p class="hero-tagline">Communications Strategist, Digital Storyteller & The solution to all your IT needs; Bridging Communication and Code for Institutional Impact </p>
     <a href="#about" class="btn">About Me</a>
   </div>
 </header>
 
-
-
   <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am Hillary Kitel, a communications and programmes professional with over five years of experience in
-      strategic communications, advocacy, and digital engagement within the development and humanitarian sector.
-      I specialize in designing and implementing communication strategies that influence policy, strengthen
-      partnerships, and amplify community voices.
-    </p>
+<section id="about">
+  <p>
+    I am a Strategic Communications and Digital Marketing professional with over three years of experience focused on achieving measurable impact within the NGO and development sector. My unique value lies in bridging the gap between high-level policy objectives and technical digital execution. I ensure every communication strategy is not only cohesive but also optimized for online visibility and audience engagement.
+  </p>
 
-    <!-- Highlights Section -->
-    <div class="highlights">
-      <h3>Key Highlights</h3>
-      <div class="stats">
-        <div class="stat">
-          <div class="icon">📈</div>
-          <div class="number">100,000+</div>
-          <p>Digital Interactions</p>
-        </div>
-        <div class="stat">
-          <div class="icon">📰</div>
-          <div class="number">50+</div>
-          <p>Media Partnerships</p>
-        </div>
-        <div class="stat">
-          <div class="icon">✍🏽</div>
-          <div class="number">30+</div>
-          <p>Policy Briefs & Reports</p>
-        </div>
-        <div class="stat">
-          <div class="icon">🎥</div>
-          <div class="number">100+</div>
-          <p>Multimedia Productions</p>
-        </div>
+  <p>
+    My expertise is a powerful combination of content strategy and technical mastery. I spearhead end-to-end multimedia production — including video, graphic design, and photography — and am proficient in WordPress and SEO best practices, consistently maximizing organizational reach and online discovery. Furthermore, I provide critical support in policy advocacy and knowledge dissemination, transforming complex institutional research into accessible, high-impact reports and digital assets.
+  </p>
+
+  <p>
+    My drive is to convert challenging organizational narratives into engaging, accessible, and optimized digital realities that contribute to sustainable success. I am actively seeking a role where my blended expertise in strategic NGO communications, digital marketing, and technical content production can directly fuel institutional growth.
+  </p>
+
+  <!-- Highlights Section -->
+  <div class="highlights">
+    <h3>Key Highlights</h3>
+    <div class="stats">
+      <div class="stat">
+        <div class="icon">📈</div>
+        <div class="number" data-target="100000">0</div>
+        <p>Digital Interactions</p>
+      </div>
+      <div class="stat">
+        <div class="icon">📰</div>
+        <div class="number" data-target="50">0</div>
+        <p>Media Partnerships</p>
+      </div>
+      <div class="stat">
+        <div class="icon">✍🏽</div>
+        <div class="number" data-target="30">0</div>
+        <p>Policy Briefs & Reports</p>
+      </div>
+      <div class="stat">
+        <div class="icon">🎥</div>
+        <div class="number" data-target="100">0</div>
+        <p>Multimedia Productions</p>
       </div>
     </div>
+  </div>
 
-    <p>
-      At DLCI, I spearheaded the organization’s communications strategy, producing publications, policy briefs, and
-      case studies that deepened donor confidence and advocacy impact. My leadership during the Pastoralist Leadership
-      Summit drove over 100,000+ digital interactions, bringing pastoralist voices to national attention and securing
-      extensive media coverage through strategic partnerships.
-    </p>
-    <p>
-      Previously, at Spring Personnel Limited, I enhanced digital visibility by creating branded communication materials,
-      multimedia content, and SEO-driven strategies that improved corporate reach and client engagement. Earlier in my career,
-      I supported Mwalimu National Sacco by streamlining customer engagement and strengthening internal and external
-      communications systems.
-    </p>
-    <p>
-      Beyond professional roles, I am skilled in multimedia production, donor reporting, and capacity building — equipping
-      teams with the tools to communicate impact effectively. Fluent in English and Swahili, and currently pursuing a
-      Master’s in Development Communication at Daystar University, I bring both technical expertise and values-driven
-      commitment to every project.
-    </p>
-  </section>
+  <p>
+    At DLCI, I spearheaded the organization’s communications strategy, producing publications, policy briefs, and
+    case studies that deepened donor confidence and advocacy impact. My leadership during the Pastoralist Leadership
+    Summit drove over 100,000+ digital interactions, bringing pastoralist voices to national attention and securing
+    extensive media coverage through strategic partnerships.
+  </p>
+  <p>
+    Previously, at Spring Personnel Limited, I enhanced digital visibility by creating branded communication materials,
+    multimedia content, and SEO-driven strategies that improved corporate reach and client engagement. Earlier in my career,
+    I supported Mwalimu National Sacco by streamlining customer engagement and strengthening internal and external
+    communications systems.
+  </p>
+  <p>
+    Beyond professional roles, I am skilled in multimedia production, donor reporting, and capacity building — equipping
+    teams with the tools to communicate impact effectively. Fluent in English and Swahili, and currently pursuing a
+    Master’s in Development Communication at Daystar University, I bring both technical expertise and values-driven
+    commitment to every project.
+  </p>
 
+  <div class="about-cta">
+    <a href="#footer" class="btn">Let's Connect</a>
+  </div>
+</section>
 <!-- Projects Section -->
 <section id="projects">
   <h2 class="section-title">Featured Projects</h2>
@@ -159,5 +165,49 @@
 </footer>
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".number");
+  const speed = 2000; // total animation duration in ms
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      const increment = target / (speed / 30); // adjust smoothness (30ms frame rate)
+      let count = 0;
+
+      const updateCount = () => {
+        count += increment;
+
+        if (target === 100000) {
+          // For the large number: count in 1000s, show as 100,000+
+          counter.textContent = Math.floor(count / 1000) * 1000 + "+";
+        } else {
+          counter.textContent = Math.floor(count) + "+";
+        }
+
+        if (count < target) {
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target.toLocaleString() + "+";
+        }
+      };
+
+      updateCount();
+    });
+  };
+
+  // Intersection Observer to trigger animation when section is visible
+  const highlightsSection = document.querySelector(".highlights");
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      observer.disconnect(); // Run only once
+    }
+  });
+
+  observer.observe(highlightsSection);
+});
+</script> 
 </body>
 </html>

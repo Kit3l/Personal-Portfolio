@@ -843,3 +843,9 @@ header, section, footer {
   transform: scale(1.1);
   color: #b8962e;            /* slightly darker gold on hover */
 }
+.number {
+  font-weight: 800;
+  font-size: 2em;
+  color: #5D3FD3;
+  transition: all 0.3s ease-in-out;
+}
