@@ -1,213 +1,888 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hillary Kitel | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:       #764ba2;
+      --blue-purple:  #667eea;
+      --deep-purple:  #5D3FD3;
+      --dark-purple:  #3b26a2;
+      --gold:         #D4AF37;
+      --gold-hover:   #b8962e;
+      --bg:           #f5f5f5;
+      --white:        #ffffff;
+      --ink:          #333333;
+      --muted:        #666666;
+      --nav-h:        60px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-logo:hover { transform: scale(1.1); color: var(--gold-hover); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--deep-purple);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--dark-purple); border-bottom: 2px solid var(--dark-purple); }
+
+    .nav-links .btn-cv {
+      background: var(--purple);
+      color: var(--white) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border-bottom: none !important;
+    }
+
+    .nav-links .btn-cv:hover { background: var(--blue-purple) !important; border-bottom: none !important; }
+
+    /* ── HERO ── */
+    #top {
+      min-height: 100vh;
+      padding: calc(var(--nav-h) + 60px) 5% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: linear-gradient(120deg, #667eea, #764ba2, #667eea);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero-text { animation: fadeUp 0.9s ease both; }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffef5c;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: white;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text h1 em { font-style: italic; color: #ffef5c; }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: white;
+      color: var(--purple);
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-cta:hover { background: #f5f5f5; transform: scale(1.05); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+
+    .hero-img-wrap {
+      display: flex;
+      justify-content: center;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+
+    .hero-img-wrap img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid white;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero-img-wrap img:hover { transform: scale(1.05) rotate(2deg); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 2rem 5%;
+      gap: 1rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1.2rem;
+      border-radius: 12px;
+      background: #f9f9f9;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .stat:hover { transform: translateY(-8px); }
+
+    .stat-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--deep-purple);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .stat-label { font-size: 0.85rem; color: #555; margin-top: 0.3rem; }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 100px 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, var(--blue-purple), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.975rem;
+    }
+
+    .connect-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid var(--purple);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .connect-link:hover { opacity: 0.7; }
+
+    /* ── SKILLS PANEL ── */
+    .skills-panel {
+      background: #f9f7ff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    }
+
+    .skills-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--purple);
+    }
+
+    .skill-category { margin-bottom: 1.4rem; }
+
+    .skill-cat-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      display: block;
+      font-weight: 600;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tag {
+      background: var(--white);
+      border: 1px solid #d0c5e8;
+      color: var(--purple);
+      font-size: 0.76rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+
+    /* ── PROJECTS ── */
+    #projects {
+      padding: 100px 5%;
+      background: linear-gradient(180deg, #f9f7ff 0%, #f5f2ff 100%);
+    }
+
+    .projects-header {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover img { transform: scale(1.05); }
+
+    .project-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--purple);
+    }
+
+    .project-body p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: auto;
+      line-height: 1.7;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .project-link.live { background: var(--purple); color: var(--white); }
+
+    .project-link.live:hover {
+      background: var(--white);
+      color: var(--purple);
+      box-shadow: inset 0 0 0 2px var(--purple);
+      transform: scale(1.05);
+    }
+
+    .project-link.coming-soon { background: #e8e2f5; color: #9b89c4; cursor: default; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      padding: 100px 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 5px 20px rgba(118,75,162,0.1);
+    }
+
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--purple);
+      opacity: 0.2;
+      position: absolute;
+      top: 0.4rem;
+      left: 1rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+
+    .testimonial-author strong { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+    .testimonial-author span   { font-size: 0.75rem; color: var(--muted); }
+
+    .testimonial-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: #aaa;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #000000;
+      color: white;
+      padding: 60px 5% 30px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-info p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .footer-socials { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+    .footer-socials a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #222;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .footer-socials a:hover { background: #444; transform: scale(1.05); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--purple); }
+
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    .btn-send {
+      background: var(--purple);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      align-self: flex-start;
+    }
+
+    .btn-send:hover { background: var(--blue-purple); transform: scale(1.05); }
+
+    .form-success {
+      display: none;
+      background: rgba(118,75,162,0.25);
+      border: 1px solid var(--purple);
+      color: white;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      #top { grid-template-columns: 1fr; text-align: center; }
+      .hero-img-wrap { order: -1; }
+      .hero-img-wrap img { width: 180px; height: 180px; }
+      .hero-subtitle { margin: 0 auto 2rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <!-- =============================
-     NAVIGATION BAR
-============================= -->
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="#top" class="nav-logo">𝕳𝕶</a>
 
-    <ul class="nav-links">
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">My Projects</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="documents/Hillary_Kitel_CV.pdf" target="_blank">Download CV</a></li>
-      <li><a href="#footer">Contact Me</a></li>
-    </ul>
-  </div>
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="#top" class="nav-logo">𝕳𝕶</a>
+  <ul class="nav-links">
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#projects">My Projects</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="documents/Hillary_Kitel_CV.pdf" target="_blank" class="btn-cv">Download CV</a></li>
+    <li><a href="#footer">Contact Me</a></li>
+  </ul>
 </nav>
-  <!-- Landing Section -->
-  <header>
-  <div class="hero">
-    <img src="Images/profile.jpg" alt="Hillary Kitel" class="profile-pic">
-    <h1 class="hero-title">Hi, I’m <span class="highlight">Hillary Kitel</span></h1>
-    <p class="hero-tagline">Communications Strategist, Digital Storyteller & The solution to all your IT needs; Bridging Communication and Code for Institutional Impact </p>
-    <a href="#about" class="btn">About Me</a>
+
+<!-- ═══ HERO ═══ -->
+<section id="top">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Strategic Communications &amp; Digital Marketing</p>
+    <h1>Hi, I'm <em>Hillary Kitel</em></h1>
+    <p class="hero-subtitle">Bridging policy, storytelling, and digital execution for measurable impact in the NGO &amp; development sector.</p>
+    <a href="#about" class="hero-cta">About Me</a>
   </div>
-</header>
-
-  <!-- About Section -->
-<section id="about">
-  <p>
-    I am a Strategic Communications and Digital Marketing professional with over three years of experience focused on achieving measurable impact within the NGO and development sector. My unique value lies in bridging the gap between high-level policy objectives and technical digital execution. I ensure every communication strategy is not only cohesive but also optimized for online visibility and audience engagement.
-  </p>
-
-  <p>
-    My expertise is a powerful combination of content strategy and technical mastery. I spearhead end-to-end multimedia production — including video, graphic design, and photography — and am proficient in WordPress and SEO best practices, consistently maximizing organizational reach and online discovery. Furthermore, I provide critical support in policy advocacy and knowledge dissemination, transforming complex institutional research into accessible, high-impact reports and digital assets.
-  </p>
-
-  <p>
-    My drive is to convert challenging organizational narratives into engaging, accessible, and optimized digital realities that contribute to sustainable success. I am actively seeking a role where my blended expertise in strategic NGO communications, digital marketing, and technical content production can directly fuel institutional growth.
-  </p>
-
-  <!-- Highlights Section -->
-  <div class="highlights">
-    <h3>Key Highlights</h3>
-    <div class="stats">
-      <div class="stat">
-        <div class="icon">📈</div>
-        <div class="number" data-target="100000">0</div>
-        <p>Digital Interactions</p>
-      </div>
-      <div class="stat">
-        <div class="icon">📰</div>
-        <div class="number" data-target="50">0</div>
-        <p>Media Partnerships</p>
-      </div>
-      <div class="stat">
-        <div class="icon">✍🏽</div>
-        <div class="number" data-target="30">0</div>
-        <p>Policy Briefs & Reports</p>
-      </div>
-      <div class="stat">
-        <div class="icon">🎥</div>
-        <div class="number" data-target="100">0</div>
-        <p>Multimedia Productions</p>
-      </div>
-    </div>
-  </div>
-
-  <p>
-    At DLCI, I spearheaded the organization’s communications strategy, producing publications, policy briefs, and
-    case studies that deepened donor confidence and advocacy impact. My leadership during the Pastoralist Leadership
-    Summit drove over 100,000+ digital interactions, bringing pastoralist voices to national attention and securing
-    extensive media coverage through strategic partnerships.
-  </p>
-  <p>
-    Previously, at Spring Personnel Limited, I enhanced digital visibility by creating branded communication materials,
-    multimedia content, and SEO-driven strategies that improved corporate reach and client engagement. Earlier in my career,
-    I supported Mwalimu National Sacco by streamlining customer engagement and strengthening internal and external
-    communications systems.
-  </p>
-  <p>
-    Beyond professional roles, I am skilled in multimedia production, donor reporting, and capacity building — equipping
-    teams with the tools to communicate impact effectively. Fluent in English and Swahili, and currently pursuing a
-    Master’s in Development Communication at Daystar University, I bring both technical expertise and values-driven
-    commitment to every project.
-  </p>
-
-  <div class="about-cta">
-    <a href="#footer" class="btn">Let's Connect</a>
+  <div class="hero-img-wrap">
+    <img src="Images/profile.jpg" alt="Hillary Kitel" />
   </div>
 </section>
-<!-- Projects Section -->
-<section id="projects">
-  <h2 class="section-title">Featured Projects</h2>
-  <p class="section-intro">A selection of digital and communications projects that blend strategy, design, and measurable impact.</p>
 
-  <div class="project-scroll">
-    
-    <!-- Project 1 -->
-    <div class="project-card">
-      <img src="Images/pls_website.jpg" alt="Pastoralist Leadership Summit Website">
-      <div class="project-content">
+<!-- ═══ STATS BAR ═══ -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-icon">📈</div>
+    <span class="stat-number" data-target="100000" data-suffix="K+">0</span>
+    <div class="stat-label">Digital Interactions</div>
+  </div>
+  <div class="stat">
+    <div class="stat-icon">📰</div>
+    <span class="stat-number" data-target="50" data-suffix="+">0</span>
+    <div class="stat-label">Media Partnerships</div>
+  </div>
+  <div class="stat">
+    <div class="stat-icon">✍🏽</div>
+    <span class="stat-number" data-target="30" data-suffix="+">0</span>
+    <div class="stat-label">Policy Briefs &amp; Reports</div>
+  </div>
+  <div class="stat">
+    <div class="stat-icon">🎥</div>
+    <span class="stat-number" data-target="100" data-suffix="+">0</span>
+    <div class="stat-label">Multimedia Productions</div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p class="section-label">About Me</p>
+      <h2 class="section-title">Comms strategist.<br>Digital builder.</h2>
+      <p>I'm a Strategic Communications and Digital Marketing professional with over three years of experience focused on achieving measurable impact within the NGO and development sector. My value lies in bridging high-level policy objectives and technical digital execution.</p>
+      <p>I spearhead end-to-end multimedia production — video, graphic design, photography — and am proficient in WordPress and SEO best practices. I transform complex institutional research into accessible, high-impact reports and digital assets.</p>
+      <p>Fluent in English and Swahili. Currently pursuing a Master's in Development Communication at Daystar University.</p>
+      <a href="#footer" class="connect-link">Let's Connect →</a>
+    </div>
+
+    <div class="skills-panel">
+      <h3>Skills &amp; Tools</h3>
+      <div class="skill-category">
+        <span class="skill-cat-label">Communications &amp; Strategy</span>
+        <div class="skill-tags">
+          <span class="tag">Content Strategy</span>
+          <span class="tag">Policy Writing</span>
+          <span class="tag">Donor Reporting</span>
+          <span class="tag">SEO</span>
+          <span class="tag">Advocacy</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <span class="skill-cat-label">Digital &amp; Web</span>
+        <div class="skill-tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Data Viz</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <span class="skill-cat-label">Multimedia Production</span>
+        <div class="skill-tags">
+          <span class="tag">Video Editing</span>
+          <span class="tag">Graphic Design</span>
+          <span class="tag">Photography</span>
+          <span class="tag">Adobe Suite</span>
+          <span class="tag">Canva</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <span class="skill-cat-label">Monitoring &amp; Evaluation</span>
+        <div class="skill-tags">
+          <span class="tag">M&amp;E Frameworks</span>
+          <span class="tag">Capacity Building</span>
+          <span class="tag">Impact Reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="projects-header reveal">
+    <p class="section-label">Work</p>
+    <h2 class="section-title">Featured Projects</h2>
+    <p style="color:var(--muted);max-width:560px;font-size:0.95rem;">A selection of digital and communications projects that blend strategy, design, and measurable impact.</p>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <img src="Images/pls_website.jpg" alt="Pastoralist Leadership Summit Website" />
+      <div class="project-body">
+        <p class="project-role">Lead Designer &amp; Developer</p>
         <h3>Pastoralist Leadership Summit Website</h3>
-        <p>Designed and developed the official Summit site — a digital hub for visibility, engagement, and real-time updates. Integrated live media, reports, and interactive archives.</p>
-        <a href="#" target="_blank" class="btn-view">View Project</a>
+        <p>Official Summit site built for visibility, engagement, and real-time updates. Drove 100,000+ digital interactions nationally.</p>
+        <a href="#" class="project-link coming-soon">🔄 Back Online Soon</a>
       </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="project-card">
-      <img src="Images/community_dashboard.jpg" alt="Community Land Dashboard">
-      <div class="project-content">
+    <div class="project-card reveal">
+      <img src="Images/community_dashboard.jpg" alt="Community Land Dashboard" />
+      <div class="project-body">
+        <p class="project-role">Lead Developer &amp; Data Strategist</p>
         <h3>Community Land Dashboard</h3>
         <p>Interactive web tool for tracking and visualizing community land data — enhancing transparency and governance in pastoralist regions.</p>
-        <a href="https://kit3l.github.io/Community-Land-Dashboard/communities.html" target="_blank" class="btn-view">View Project</a>
+        <a href="https://kit3l.github.io/Community-Land-Dashboard/communities-dashboard.html" target="_blank" class="project-link live">View Live Project ↗</a>
       </div>
     </div>
 
-    <!-- Project 3 -->
-    <div class="project-card">
-      <img src="Images/skipp_carrier.jpg" alt="Skipp Carrier Platform">
-      <div class="project-content">
-        <h3>Skipp Carrier</h3>
+    <div class="project-card reveal">
+      <img src="Images/skipp_carrier.jpg" alt="Skipp Carrier Platform" />
+      <div class="project-body">
+        <p class="project-role">Product Designer &amp; Developer</p>
+        <h3>Skipp Carrier Platform</h3>
         <p>Legal document delivery platform for law firms — built for speed, reliability, and secure client communication.</p>
-        <a href="#" target="_blank" class="btn-view">View Project</a>
+        <a href="#" class="project-link coming-soon">🔗 Link Coming Soon</a>
       </div>
     </div>
 
-    <!-- Project 4 -->
-    <div class="project-card">
-      <img src="Images/me_dashboard.jpg" alt="M&E Dashboard">
-      <div class="project-content">
-        <h3>Monitoring & Evaluation Dashboard</h3>
+    <div class="project-card reveal">
+      <img src="Images/me_dashboard.jpg" alt="M&E Dashboard" />
+      <div class="project-body">
+        <p class="project-role">Developer &amp; M&amp;E Consultant</p>
+        <h3>Monitoring &amp; Evaluation Dashboard</h3>
         <p>NGO-focused performance tracking dashboard integrating live project indicators, outcomes, and donor reporting metrics.</p>
-        <a href="#" target="_blank" class="btn-view">View Project</a>
+        <a href="#" class="project-link coming-soon">🔄 Back Online Soon</a>
       </div>
     </div>
-
   </div>
 </section>
 
-    <!-- Footer Section -->
- <footer id="footer">
-  <p>© 2025 Hillary Kitel | All Rights Reserved</p>
-  <div class="footer-links">
-    <a href="mailto:pchumbakitel@gmail.com" class="footer-btn" target="_blank">
-      <i class="fa-solid fa-envelope"></i> Email
-    </a>
-    <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" class="footer-btn" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
-    <a href="tel:+254713546522" class="footer-btn">
-      <i class="fa-solid fa-phone"></i> Phone
-    </a>
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="reveal">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-title">What People Say</h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Hillary transformed how we communicate our work to donors and stakeholders. The policy briefs and digital content he produced were clear, compelling, and directly boosted our advocacy impact.</p>
+      <div class="testimonial-author">
+        <strong>Colleague, DLCI</strong>
+        <span>Development &amp; Land Rights Sector</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">His ability to take complex organizational narratives and turn them into engaging digital content is rare. He elevated our brand's online presence significantly within just a few months.</p>
+      <div class="testimonial-author">
+        <strong>Manager, Spring Personnel Limited</strong>
+        <span>HR &amp; Corporate Communications</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Hillary led our Summit's digital strategy end-to-end. The reach we achieved — over 100,000 interactions — was beyond expectation. A true communications strategist and digital professional.</p>
+      <div class="testimonial-author">
+        <strong>Director, Pastoralist Leadership Summit</strong>
+        <span>Communications &amp; Advocacy</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="testimonial-note">* Testimonials represent the nature of feedback received. Direct quotes available on request.</p>
+</section>
+
+<!-- ═══ FOOTER / CONTACT ═══ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-info reveal">
+      <h2>Let's work<br>together.</h2>
+      <p>Open to strategic communications, digital marketing, and NGO/development sector roles. Drop me a message and I'll get back to you promptly.</p>
+      <div class="footer-socials">
+        <a href="mailto:pchumbakitel@gmail.com">✉ Email</a>
+        <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank">in LinkedIn</a>
+        <a href="documents/Hillary_Kitel_CV.pdf" target="_blank">↓ Download CV</a>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="contact-form">
+        <div class="form-row">
+          <input type="text" id="fname" placeholder="Your Name" />
+          <input type="email" id="femail" placeholder="Your Email" />
+        </div>
+        <input type="text" id="fsubject" placeholder="Subject" />
+        <textarea id="fmessage" placeholder="Your message…"></textarea>
+        <button class="btn-send" onclick="handleFormSubmit()">Send Message</button>
+        <div class="form-success" id="formSuccess">✓ Thanks! I'll be in touch shortly.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Hillary Kitel · All Rights Reserved</span>
+    <span>Nairobi, Kenya</span>
   </div>
 </footer>
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
- <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const counters = document.querySelectorAll(".number");
-  const speed = 2000; // total animation duration in ms
 
-  const animateCounters = () => {
-    counters.forEach(counter => {
-      const target = +counter.getAttribute("data-target");
-      const increment = target / (speed / 30); // adjust smoothness (30ms frame rate)
-      let count = 0;
-
-      const updateCount = () => {
-        count += increment;
-
-        if (target === 100000) {
-          // For the large number: count in 1000s, show as 100,000+
-          counter.textContent = Math.floor(count / 1000) * 1000 + "+";
-        } else {
-          counter.textContent = Math.floor(count) + "+";
-        }
-
-        if (count < target) {
-          requestAnimationFrame(updateCount);
-        } else {
-          counter.textContent = target.toLocaleString() + "+";
-        }
-      };
-
-      updateCount();
-    });
-  };
-
-  // Intersection Observer to trigger animation when section is visible
-  const highlightsSection = document.querySelector(".highlights");
-  const observer = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      animateCounters();
-      observer.disconnect(); // Run only once
+<script>
+  // ── Counter animation ──
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const isLarge = target >= 1000;
+    const displayTarget = isLarge ? Math.round(target / 1000) : target;
+    const displaySuffix = isLarge ? 'K+' : (el.dataset.suffix || '+');
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * displayTarget);
+      el.textContent = current + (progress < 1 ? '' : displaySuffix);
+      if (progress < 1) requestAnimationFrame(step);
     }
-  });
+    requestAnimationFrame(step);
+  }
 
-  observer.observe(highlightsSection);
-});
-</script> 
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.animated) {
+        e.target.dataset.animated = 'true';
+        animateCounter(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-number').forEach(c => counterObserver.observe(c));
+
+  // ── Scroll reveal ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(r => revealObserver.observe(r));
+
+  // ── Contact form ──
+  function handleFormSubmit() {
+    const name    = document.getElementById('fname').value.trim();
+    const email   = document.getElementById('femail').value.trim();
+    const subject = document.getElementById('fsubject').value.trim();
+    const message = document.getElementById('fmessage').value.trim();
+    if (!name || !email || !message) { alert('Please fill in your name, email, and message.'); return; }
+    window.location.href = `mailto:pchumbakitel@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Enquiry')}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+    document.getElementById('formSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
+  }
+
+  // ── Nav active on scroll ──
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY + 80;
+    document.querySelectorAll('section[id], footer[id]').forEach(sec => {
+      const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
+      if (link) link.style.color = (sec.offsetTop <= scrollY && sec.offsetTop + sec.offsetHeight > scrollY) ? '#764ba2' : '';
+    });
+  });
+</script>
 </body>
 </html>
