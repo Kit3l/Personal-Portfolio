@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports & Publications | Hillary Kitel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:      #764ba2;
+      --blue-purple: #667eea;
+      --deep-purple: #5D3FD3;
+      --dark-purple: #3b26a2;
+      --gold:        #D4AF37;
+      --gold-hover:  #b8962e;
+      --bg:          #f5f5f5;
+      --white:       #ffffff;
+      --ink:         #333333;
+      --muted:       #666666;
+      --nav-h:       60px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .nav-logo:hover { transform: scale(1.1); color: var(--gold-hover); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--deep-purple);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+    .nav-links a:hover { color: var(--dark-purple); border-bottom: 2px solid var(--dark-purple); }
+    .nav-links .btn-cv {
+      background: var(--purple);
+      color: var(--white) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border-bottom: none !important;
+    }
+    .nav-links .btn-cv:hover { background: var(--blue-purple) !important; border-bottom: none !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      min-height: 38vh;
+      padding: calc(var(--nav-h) + 50px) 5% 50px;
+      background: linear-gradient(120deg, #667eea, #764ba2, #667eea);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .page-header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffef5c;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      max-width: 560px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.5rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #ffef5c; }
+
+    /* ── REPORTS GRID ── */
+    .reports-section {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .report-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .report-card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(118,75,162,0.15); }
+
+    /* Thumbnail — replace with actual cover screenshot */
+    .report-thumb {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #f9f7ff, #e8e2f5);
+      transition: transform 0.4s;
+    }
+    .report-card:hover .report-thumb { transform: scale(1.03); }
+
+    /* Placeholder shown when no image yet */
+    .report-thumb-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #f0ebff, #e0d5f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--purple);
+      font-size: 2.5rem;
+    }
+    .report-thumb-placeholder span {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .report-body { padding: 1.4rem; display: flex; flex-direction: column; flex: 1; }
+
+    .report-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .report-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .report-body p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: auto;
+    }
+
+    .report-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f0ebff;
+    }
+
+    .report-date { font-size: 0.75rem; color: var(--muted); }
+
+    .report-btn {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .report-btn:hover { background: var(--blue-purple); transform: scale(1.05); }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: #000;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      margin-top: 60px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .reports-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">𝕳𝕶</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About Me</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="photos.html">Photos</a></li>
+    <li><a href="index.html#footer" class="btn-cv">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p class="eyebrow">Publications &amp; Research</p>
+  <h1>Policy Briefs &amp;<br>Reports</h1>
+  <p>A collection of policy briefs, case studies, and institutional publications produced across NGO and development sector engagements.</p>
+  <a href="index.html" class="back-link">← Back to Portfolio</a>
+</div>
+
+<!-- REPORTS GRID -->
+<section class="reports-section">
+  <div class="reports-grid">
+
+    <!--
+      HOW TO USE:
+      - Replace REPORT-TITLE with the actual report name
+      - Replace REPORT-DESCRIPTION with a one-line summary
+      - Replace REPORT-DATE with the publication date e.g. "March 2024"
+      - Replace REPORT-TAG with the category e.g. "Policy Brief" / "Case Study" / "Publication"
+      - Replace documents/reports/report1.pdf with the actual path to your PDF in the repo
+      - To add a cover image: replace the placeholder div with:
+        <img src="Images/reports/report1.jpg" class="report-thumb" alt="Report Title" />
+    -->
+
+    <!-- REPORT 1 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+      <div class="report-body">
+        <p class="report-tag">Policy Brief</p>
+        <h3>REPORT-TITLE-1</h3>
+        <p>REPORT-DESCRIPTION-1</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-1</span>
+          <a href="documents/reports/report1.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 2 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Case Study</span></div>
+      <div class="report-body">
+        <p class="report-tag">Case Study</p>
+        <h3>REPORT-TITLE-2</h3>
+        <p>REPORT-DESCRIPTION-2</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-2</span>
+          <a href="documents/reports/report2.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 3 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Publication</span></div>
+      <div class="report-body">
+        <p class="report-tag">Publication</p>
+        <h3>REPORT-TITLE-3</h3>
+        <p>REPORT-DESCRIPTION-3</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-3</span>
+          <a href="documents/reports/report3.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 4 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+      <div class="report-body">
+        <p class="report-tag">Policy Brief</p>
+        <h3>REPORT-TITLE-4</h3>
+        <p>REPORT-DESCRIPTION-4</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-4</span>
+          <a href="documents/reports/report4.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 5 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Case Study</span></div>
+      <div class="report-body">
+        <p class="report-tag">Case Study</p>
+        <h3>REPORT-TITLE-5</h3>
+        <p>REPORT-DESCRIPTION-5</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-5</span>
+          <a href="documents/reports/report5.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 6 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Publication</span></div>
+      <div class="report-body">
+        <p class="report-tag">Publication</p>
+        <h3>REPORT-TITLE-6</h3>
+        <p>REPORT-DESCRIPTION-6</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-6</span>
+          <a href="documents/reports/report6.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 7 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+      <div class="report-body">
+        <p class="report-tag">Policy Brief</p>
+        <h3>REPORT-TITLE-7</h3>
+        <p>REPORT-DESCRIPTION-7</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-7</span>
+          <a href="documents/reports/report7.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 8 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Case Study</span></div>
+      <div class="report-body">
+        <p class="report-tag">Case Study</p>
+        <h3>REPORT-TITLE-8</h3>
+        <p>REPORT-DESCRIPTION-8</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-8</span>
+          <a href="documents/reports/report8.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 9 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Publication</span></div>
+      <div class="report-body">
+        <p class="report-tag">Publication</p>
+        <h3>REPORT-TITLE-9</h3>
+        <p>REPORT-DESCRIPTION-9</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-9</span>
+          <a href="documents/reports/report9.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT 10 -->
+    <div class="report-card">
+      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+      <div class="report-body">
+        <p class="report-tag">Policy Brief</p>
+        <h3>REPORT-TITLE-10</h3>
+        <p>REPORT-DESCRIPTION-10</p>
+        <div class="report-meta">
+          <span class="report-date">REPORT-DATE-10</span>
+          <a href="documents/reports/report10.pdf" target="_blank" class="report-btn">Read Report ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="page-footer">
+  © 2026 Hillary Kitel · <a href="index.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Back to Portfolio</a>
+</div>
+
+</body>
+</html>

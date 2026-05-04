@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Documentation | Hillary Kitel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:      #764ba2;
+      --blue-purple: #667eea;
+      --deep-purple: #5D3FD3;
+      --dark-purple: #3b26a2;
+      --gold:        #D4AF37;
+      --gold-hover:  #b8962e;
+      --bg:          #f5f5f5;
+      --white:       #ffffff;
+      --ink:         #333333;
+      --muted:       #666666;
+      --nav-h:       60px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .nav-logo:hover { transform: scale(1.1); color: var(--gold-hover); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--deep-purple);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+    .nav-links a:hover { color: var(--dark-purple); border-bottom: 2px solid var(--dark-purple); }
+    .nav-links .btn-cv {
+      background: var(--purple);
+      color: var(--white) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border-bottom: none !important;
+    }
+    .nav-links .btn-cv:hover { background: var(--blue-purple) !important; border-bottom: none !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      min-height: 40vh;
+      padding: calc(var(--nav-h) + 60px) 5% 60px;
+      background: linear-gradient(120deg, #667eea, #764ba2, #667eea);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .page-header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffef5c;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      max-width: 600px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.7;
+    }
+
+    /* In-page anchor jump nav */
+    .page-nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .page-nav a {
+      display: inline-block;
+      padding: 0.45rem 1.2rem;
+      border: 2px solid rgba(255,255,255,0.5);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .page-nav a:hover { background: white; color: var(--purple); border-color: white; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.2rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #ffef5c; }
+
+    /* ── SHARED SECTION STYLES ── */
+    .media-section {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      background: linear-gradient(to right, var(--blue-purple), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtext {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e0d8f0;
+      margin: 0 5% 80px;
+    }
+
+    /* ── PLATFORM LABEL ── */
+    .platform-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 700;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--purple);
+      display: inline-block;
+    }
+
+    /* ── VIDEO GRID ── */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .video-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(118,75,162,0.15); }
+
+    /* YouTube 16:9 embed */
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #1a1a2e;
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* Twitter/X thumbnail link */
+    .video-thumb-link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-thumb-link img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .video-card:hover .video-thumb-link img { transform: scale(1.05); }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(118,75,162,0.3);
+      transition: background 0.3s;
+    }
+    .video-card:hover .play-overlay { background: rgba(118,75,162,0.5); }
+
+    .play-btn {
+      width: 56px;
+      height: 56px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .platform-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.72);
+      color: white;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .video-body { padding: 1.2rem; }
+
+    .video-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .video-body p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .video-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .video-date { font-size: 0.72rem; color: var(--muted); }
+
+    .watch-btn {
+      color: var(--purple);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--purple);
+      transition: opacity 0.2s;
+    }
+    .watch-btn:hover { opacity: 0.7; }
+
+    /* ── PHOTO ALBUMS GRID ── */
+    #photos {
+      background: linear-gradient(180deg, #f9f7ff 0%, #f5f2ff 100%);
+      padding: 80px 5%;
+    }
+
+    .albums-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .albums-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .album-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .album-card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(118,75,162,0.15); }
+
+    /* Thumbnail — either a real image or the placeholder grid */
+    .album-thumb {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ede8f8, #d8cff0);
+    }
+
+    /* Placeholder: 4-square collage feel */
+    .album-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 3px;
+    }
+
+    .thumb-square {
+      background: linear-gradient(135deg, #e0d5f5, #c9bae8);
+    }
+    .thumb-square:nth-child(2) { background: linear-gradient(135deg, #d0c5e8, #b8aad8); }
+    .thumb-square:nth-child(3) { background: linear-gradient(135deg, #c5bae0, #afa0d0); }
+    .thumb-square:nth-child(4) { background: linear-gradient(135deg, #d8cff0, #c0b5e0); }
+
+    /* Real thumbnail image — use this when you have a cover photo */
+    .album-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .album-card:hover .album-thumb img { transform: scale(1.06); }
+
+    /* Folder icon overlay on placeholder */
+    .album-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: rgba(118,75,162,0.18);
+      transition: background 0.3s;
+    }
+    .album-card:hover .album-icon { background: rgba(118,75,162,0.35); }
+
+    .album-icon .folder-emoji { font-size: 2.8rem; }
+
+    .album-count {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0,0,0,0.45);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+
+    .album-body { padding: 1.2rem; flex: 1; display: flex; flex-direction: column; }
+
+    .album-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .album-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .album-body p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: auto;
+    }
+
+    .album-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #f0ebff;
+    }
+
+    .album-date { font-size: 0.72rem; color: var(--muted); }
+
+    .album-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--purple);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .album-btn:hover { background: var(--blue-purple); transform: scale(1.05); }
+
+    /* ── PAGE FOOTER ── */
+    .page-footer {
+      background: #000;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+    }
+    .page-footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .videos-grid { grid-template-columns: 1fr; }
+      .albums-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 1rem; }
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+    }
+    @media (max-width: 480px) {
+      .albums-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="index.html" class="nav-logo">𝕳𝕶</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About Me</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="reports.html">Reports</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#photos">Photos</a></li>
+    <li><a href="index.html#footer" class="btn-cv">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ PAGE HEADER ═══ -->
+<div class="page-header">
+  <p class="eyebrow">Multimedia &amp; Visual Work</p>
+  <h1>Visual Documentation</h1>
+  <p>Video productions, event photography, and field documentation from across my communications and advocacy work in the NGO and development sector.</p>
+  <div class="page-nav">
+    <a href="#videos">▶ Videos</a>
+    <a href="#photos">📁 Photo Albums</a>
+  </div>
+  <a href="index.html" class="back-link">← Back to Portfolio</a>
+</div>
+
+<!-- ═══ VIDEOS SECTION ═══ -->
+<section class="media-section" id="videos">
+  <p class="section-eyebrow">Multimedia Production</p>
+  <h2 class="section-heading">Video Work</h2>
+  <p class="section-subtext">Documentary, advocacy, and institutional video productions — on YouTube and Twitter/X.</p>
+
+  <!-- YOUTUBE -->
+  <p class="platform-label">▶ YouTube</p>
+  <div class="videos-grid">
+
+    <!--
+      YOUTUBE: Get the video ID from the URL
+      youtube.com/watch?v=VIDEO_ID  →  use VIDEO_ID below
+    -->
+
+    <!-- YOUTUBE VIDEO 1 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"
+          title="VIDEO-TITLE-1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-body">
+        <h3>VIDEO-TITLE-1</h3>
+        <p>VIDEO-DESCRIPTION-1</p>
+        <div class="video-meta">
+          <span class="video-date">VIDEO-DATE-1</span>
+          <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="watch-btn">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUTUBE VIDEO 2 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"
+          title="VIDEO-TITLE-2"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-body">
+        <h3>VIDEO-TITLE-2</h3>
+        <p>VIDEO-DESCRIPTION-2</p>
+        <div class="video-meta">
+          <span class="video-date">VIDEO-DATE-2</span>
+          <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="watch-btn">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- YOUTUBE VIDEO 3 -->
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"
+          title="VIDEO-TITLE-3"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="video-body">
+        <h3>VIDEO-TITLE-3</h3>
+        <p>VIDEO-DESCRIPTION-3</p>
+        <div class="video-meta">
+          <span class="video-date">VIDEO-DATE-3</span>
+          <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="watch-btn">Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TWITTER / X -->
+  <p class="platform-label">𝕏 Twitter / X</p>
+  <div class="videos-grid">
+
+    <!--
+      TWITTER: Save a screenshot of the video thumbnail to Images/videos/
+      Replace the href with the full tweet URL
+    -->
+
+    <!-- TWITTER VIDEO 1 -->
+    <div class="video-card">
+      <a href="https://twitter.com/TWITTER-LINK-1" target="_blank" class="video-thumb-link">
+        <img src="Images/videos/twitter_thumb1.jpg" alt="VIDEO-TITLE-4" />
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="platform-badge">𝕏 Twitter</span>
+      </a>
+      <div class="video-body">
+        <h3>VIDEO-TITLE-4</h3>
+        <p>VIDEO-DESCRIPTION-4</p>
+        <div class="video-meta">
+          <span class="video-date">VIDEO-DATE-4</span>
+          <a href="https://twitter.com/TWITTER-LINK-1" target="_blank" class="watch-btn">Watch on X ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWITTER VIDEO 2 -->
+    <div class="video-card">
+      <a href="https://twitter.com/TWITTER-LINK-2" target="_blank" class="video-thumb-link">
+        <img src="Images/videos/twitter_thumb2.jpg" alt="VIDEO-TITLE-5" />
+        <div class="play-overlay"><div class="play-btn">▶</div></div>
+        <span class="platform-badge">𝕏 Twitter</span>
+      </a>
+      <div class="video-body">
+        <h3>VIDEO-TITLE-5</h3>
+        <p>VIDEO-DESCRIPTION-5</p>
+        <div class="video-meta">
+          <span class="video-date">VIDEO-DATE-5</span>
+          <a href="https://twitter.com/TWITTER-LINK-2" target="_blank" class="watch-btn">Watch on X ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ═══ PHOTO ALBUMS SECTION ═══ -->
+<div id="photos">
+  <div class="albums-inner">
+    <div style="padding: 0 0 2.5rem;">
+      <p class="section-eyebrow">Photography &amp; Field Documentation</p>
+      <h2 class="section-heading">Photo Albums</h2>
+      <p class="section-subtext">Event coverage, field documentation, and visual storytelling. Each album opens in Google Drive.</p>
+    </div>
+
+    <div class="albums-grid">
+
+      <!--
+        HOW TO LINK A GOOGLE DRIVE FOLDER:
+        1. Open the folder in Google Drive
+        2. Click Share → Anyone with the link → Copy link
+        3. Paste that link as the href on the album-card anchor
+        4. Replace ALBUM-TITLE, ALBUM-DESCRIPTION, ALBUM-DATE, ALBUM-TAG
+        5. Replace "XX photos" with the actual count if you know it
+        6. OPTIONAL: To add a real cover thumbnail:
+           - Share one photo from the folder, get its FILE_ID
+           - Replace the placeholder div with:
+             <img src="https://drive.google.com/thumbnail?id=FILE_ID&sz=w600" alt="..." />
+      -->
+
+      <!-- ALBUM 1 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_1" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-1</p>
+          <h3>ALBUM-TITLE-1</h3>
+          <p>ALBUM-DESCRIPTION-1</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-1</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 2 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_2" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-2</p>
+          <h3>ALBUM-TITLE-2</h3>
+          <p>ALBUM-DESCRIPTION-2</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-2</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 3 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_3" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-3</p>
+          <h3>ALBUM-TITLE-3</h3>
+          <p>ALBUM-DESCRIPTION-3</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-3</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 4 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_4" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-4</p>
+          <h3>ALBUM-TITLE-4</h3>
+          <p>ALBUM-DESCRIPTION-4</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-4</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 5 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_5" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-5</p>
+          <h3>ALBUM-TITLE-5</h3>
+          <p>ALBUM-DESCRIPTION-5</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-5</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 6 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_6" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-6</p>
+          <h3>ALBUM-TITLE-6</h3>
+          <p>ALBUM-DESCRIPTION-6</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-6</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 7 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_7" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-7</p>
+          <h3>ALBUM-TITLE-7</h3>
+          <p>ALBUM-DESCRIPTION-7</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-7</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 8 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_8" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-8</p>
+          <h3>ALBUM-TITLE-8</h3>
+          <p>ALBUM-DESCRIPTION-8</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-8</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 9 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_9" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-9</p>
+          <h3>ALBUM-TITLE-9</h3>
+          <p>ALBUM-DESCRIPTION-9</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-9</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 10 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_10" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-10</p>
+          <h3>ALBUM-TITLE-10</h3>
+          <p>ALBUM-DESCRIPTION-10</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-10</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 11 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_11" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-11</p>
+          <h3>ALBUM-TITLE-11</h3>
+          <p>ALBUM-DESCRIPTION-11</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-11</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 12 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_12" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-12</p>
+          <h3>ALBUM-TITLE-12</h3>
+          <p>ALBUM-DESCRIPTION-12</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-12</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 13 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_13" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-13</p>
+          <h3>ALBUM-TITLE-13</h3>
+          <p>ALBUM-DESCRIPTION-13</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-13</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 14 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_14" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-14</p>
+          <h3>ALBUM-TITLE-14</h3>
+          <p>ALBUM-DESCRIPTION-14</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-14</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- ALBUM 15 -->
+      <a class="album-card" href="https://drive.google.com/drive/folders/FOLDER_ID_15" target="_blank">
+        <div class="album-thumb">
+          <div class="album-thumb-placeholder">
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+            <div class="thumb-square"></div>
+          </div>
+          <div class="album-icon">
+            <span class="folder-emoji">📁</span>
+            <span class="album-count">View Album</span>
+          </div>
+        </div>
+        <div class="album-body">
+          <p class="album-tag">ALBUM-TAG-15</p>
+          <h3>ALBUM-TITLE-15</h3>
+          <p>ALBUM-DESCRIPTION-15</p>
+          <div class="album-footer">
+            <span class="album-date">ALBUM-DATE-15</span>
+            <span class="album-btn">Open Album ↗</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  © 2026 Hillary Kitel · <a href="index.html">Back to Portfolio</a>
+</div>
+
+</body>
+</html>
