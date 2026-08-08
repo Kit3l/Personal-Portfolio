@@ -6,32 +6,77 @@
   <title>Reports & Publications | Hillary Kitel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --purple:      #764ba2;
-      --blue-purple: #667eea;
-      --deep-purple: #5D3FD3;
-      --dark-purple: #3b26a2;
-      --gold:        #D4AF37;
-      --gold-hover:  #b8962e;
-      --bg:          #f5f5f5;
-      --white:       #ffffff;
-      --ink:         #333333;
-      --muted:       #666666;
-      --nav-h:       60px;
+      --sage:      #444b38;
+      --cream:     #f4f1e8;
+      --cream-deep:#ece6d6;
+      --charcoal:  #2a2a24;
+      --sand:      #c9a86a;
+      --sand-deep: #b3925a;
+      --nav-h:     60px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
+      background: var(--cream);
+      color: var(--charcoal);
       font-size: 16px;
       line-height: 1.7;
       overflow-x: hidden;
+    }
+
+    /* ── TYPE HELPERS (match index.html) ── */
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sand);
+      font-weight: 600;
+      text-align: center;
+    }
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 1px;
+      background: var(--sand);
+      opacity: 0.7;
+      margin: 0.9rem auto 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-variant: small-caps;
+      letter-spacing: 0.03em;
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      color: var(--charcoal);
+    }
+
+    .section-header {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .section-subtext {
+      color: rgba(42,42,36,0.65);
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     /* ── NAV ── */
@@ -39,8 +84,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       height: var(--nav-h);
-      background: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      background: var(--sage);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -52,12 +96,12 @@
       font-family: 'UnifrakturCook', cursive;
       font-size: 2rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--sand);
       text-decoration: none;
       letter-spacing: 2px;
-      transition: transform 0.3s, color 0.3s;
+      transition: transform 0.5s var(--ease), color 0.4s var(--ease);
     }
-    .nav-logo:hover { transform: scale(1.1); color: var(--gold-hover); }
+    .nav-logo:hover { transform: scale(1.08); color: var(--sand-deep); }
 
     .nav-links {
       display: flex;
@@ -67,87 +111,76 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: var(--deep-purple);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
+      color: var(--cream);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding-bottom: 2px;
-      border-bottom: 2px solid transparent;
-      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
     }
-    .nav-links a:hover { color: var(--dark-purple); border-bottom: 2px solid var(--dark-purple); }
-    .nav-links .btn-cv {
-      background: var(--purple);
-      color: var(--white) !important;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      border-bottom: none !important;
-    }
-    .nav-links .btn-cv:hover { background: var(--blue-purple) !important; border-bottom: none !important; }
+    .nav-links a:hover { color: var(--sand); border-color: var(--sand); }
+    .nav-links .btn-cv { color: var(--sand); }
+    .nav-links .btn-cv:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
 
-    /* ── PAGE HEADER ── */
+    /* ── PAGE HEADER — green, centered, restrained ── */
     .page-header {
-      min-height: 38vh;
-      padding: calc(var(--nav-h) + 50px) 5% 50px;
-      background: linear-gradient(120deg, #667eea, #764ba2, #667eea);
-      background-size: 300% 300%;
-      animation: gradientShift 8s ease infinite;
+      min-height: 44vh;
+      padding: calc(var(--nav-h) + 90px) 6% 70px;
+      background: var(--sage);
+      color: var(--cream);
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-    }
-
-    @keyframes gradientShift {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      text-align: center;
+      gap: 1.4rem;
     }
 
     .page-header .eyebrow {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #ffef5c;
+      color: var(--sand);
       font-weight: 600;
-      margin-bottom: 0.8rem;
     }
 
     .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.4rem, 5.2vw, 3.6rem);
       font-weight: 700;
-      color: white;
-      line-height: 1.15;
-      margin-bottom: 1rem;
+      color: var(--cream);
+      line-height: 1.2;
     }
 
     .page-header p {
-      color: rgba(255,255,255,0.85);
+      color: rgba(244,241,232,0.8);
       font-size: 1rem;
-      max-width: 560px;
+      max-width: 580px;
       font-style: italic;
       font-family: 'Playfair Display', serif;
+      line-height: 1.8;
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: 1.5rem;
-      color: rgba(255,255,255,0.7);
+      margin-top: 0.6rem;
+      color: rgba(244,241,232,0.55);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      transition: color 0.2s;
+      transition: color 0.4s var(--ease);
     }
-    .back-link:hover { color: #ffef5c; }
+    .back-link:hover { color: var(--sand); }
 
     /* ── REPORTS GRID ── */
     .reports-section {
-      padding: 80px 5%;
+      padding: 130px 5%;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -155,19 +188,32 @@
     .reports-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
+      gap: 2.25rem;
+      margin-top: 3.5rem;
     }
 
     .report-card {
-      background: var(--white);
-      border-radius: 16px;
+      background: #faf8f1;
+      border: 1px solid rgba(42,42,36,0.08);
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 18px 40px rgba(42,42,36,0.1);
+      transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), border-color 0.5s var(--ease);
       display: flex;
       flex-direction: column;
     }
-    .report-card:hover { transform: translateY(-6px); box-shadow: 0 16px 35px rgba(118,75,162,0.15); }
+    .report-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 55px rgba(42,42,36,0.16);
+      border-color: rgba(201,168,106,0.5);
+    }
+
+    .reports-grid .report-card:nth-child(6n+1) { --reveal-delay: 0s; }
+    .reports-grid .report-card:nth-child(6n+2) { --reveal-delay: 0.08s; }
+    .reports-grid .report-card:nth-child(6n+3) { --reveal-delay: 0.16s; }
+    .reports-grid .report-card:nth-child(6n+4) { --reveal-delay: 0.24s; }
+    .reports-grid .report-card:nth-child(6n+5) { --reveal-delay: 0.32s; }
+    .reports-grid .report-card:nth-child(6n+6) { --reveal-delay: 0.4s; }
 
     /* Thumbnail — replace with actual cover screenshot */
     .report-thumb {
@@ -175,57 +221,56 @@
       height: 200px;
       object-fit: cover;
       display: block;
-      background: linear-gradient(135deg, #f9f7ff, #e8e2f5);
-      transition: transform 0.4s;
+      transition: transform 0.7s var(--ease);
     }
-    .report-card:hover .report-thumb { transform: scale(1.03); }
+    .report-card:hover .report-thumb { transform: scale(1.04); }
 
     /* Placeholder shown when no image yet */
     .report-thumb-placeholder {
       width: 100%;
       height: 200px;
-      background: linear-gradient(135deg, #f0ebff, #e0d5f5);
+      background: var(--cream-deep);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      color: var(--purple);
-      font-size: 2.5rem;
+      gap: 0.7rem;
+      color: var(--sand);
     }
+    .report-thumb-placeholder svg { width: 40px; height: 40px; }
     .report-thumb-placeholder span {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 600;
-      color: var(--muted);
+      color: rgba(42,42,36,0.45);
       font-family: 'Poppins', sans-serif;
     }
 
-    .report-body { padding: 1.4rem; display: flex; flex-direction: column; flex: 1; }
+    .report-body { padding: 1.6rem; display: flex; flex-direction: column; flex: 1; }
 
     .report-tag {
       font-size: 0.62rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--purple);
-      font-weight: 700;
-      margin-bottom: 0.4rem;
+      color: var(--sand-deep);
+      font-weight: 600;
+      margin-bottom: 0.45rem;
     }
 
     .report-body h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--ink);
+      color: var(--charcoal);
       margin-bottom: 0.5rem;
       line-height: 1.4;
     }
 
     .report-body p {
       font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
+      color: rgba(42,42,36,0.62);
+      line-height: 1.7;
       margin-bottom: auto;
     }
 
@@ -233,34 +278,66 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 1.2rem;
+      margin-top: 1.3rem;
       padding-top: 1rem;
-      border-top: 1px solid #f0ebff;
+      border-top: 1px solid rgba(42,42,36,0.1);
     }
 
-    .report-date { font-size: 0.75rem; color: var(--muted); }
+    .report-date { font-size: 0.75rem; color: rgba(42,42,36,0.45); }
 
     .report-btn {
       display: inline-block;
-      background: var(--purple);
-      color: white;
+      color: var(--sand-deep);
       text-decoration: none;
-      padding: 0.4rem 1rem;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      transition: background 0.3s, transform 0.2s;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s var(--ease);
     }
-    .report-btn:hover { background: var(--blue-purple); transform: scale(1.05); }
+    .report-btn:hover { border-bottom-color: var(--sand-deep); }
 
     /* ── FOOTER ── */
     .page-footer {
-      background: #000;
-      color: rgba(255,255,255,0.35);
+      background: var(--cream);
+      color: rgba(42,42,36,0.45);
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem;
       font-size: 0.78rem;
-      margin-top: 60px;
+      border-top: 1px solid rgba(42,42,36,0.1);
+    }
+    .page-footer a { color: rgba(42,42,36,0.5); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.4s var(--ease), border-color 0.4s var(--ease); }
+    .page-footer a:hover { color: var(--sand-deep); border-bottom-color: var(--sand-deep); }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--sand);
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      z-index: 1100;
+      will-change: transform;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      transition-delay: var(--reveal-delay, 0s);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
     }
 
     /* ── RESPONSIVE ── */
@@ -273,14 +350,16 @@
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">𝕳𝕶</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About Me</a></li>
     <li><a href="index.html#projects">Projects</a></li>
-    <li><a href="videos.html">Videos</a></li>
-    <li><a href="photos.html">Photos</a></li>
+    <li><a href="media.html#videos">Videos</a></li>
+    <li><a href="media.html#photos">Photos</a></li>
     <li><a href="index.html#footer" class="btn-cv">Contact</a></li>
   </ul>
 </nav>
@@ -288,13 +367,19 @@
 <!-- PAGE HEADER -->
 <div class="page-header">
   <p class="eyebrow">Publications &amp; Research</p>
-  <h1>Policy Briefs &amp;<br>Reports</h1>
+  <h1>Policy Briefs &amp; Reports</h1>
   <p>A collection of policy briefs, case studies, and institutional publications produced across NGO and development sector engagements.</p>
   <a href="index.html" class="back-link">← Back to Portfolio</a>
 </div>
 
 <!-- REPORTS GRID -->
 <section class="reports-section">
+  <div class="section-header reveal">
+    <p class="section-label">Publications</p>
+    <h2 class="section-title">Reports &amp; Briefs</h2>
+    <p class="section-subtext">Policy briefs, case studies, and institutional publications — add each report's cover, title, and link as they're published.</p>
+  </div>
+
   <div class="reports-grid">
 
     <!--
@@ -309,8 +394,16 @@
     -->
 
     <!-- REPORT 1 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Policy Brief</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Policy Brief</p>
         <h3>REPORT-TITLE-1</h3>
@@ -323,8 +416,16 @@
     </div>
 
     <!-- REPORT 2 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Case Study</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Case Study</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Case Study</p>
         <h3>REPORT-TITLE-2</h3>
@@ -337,8 +438,16 @@
     </div>
 
     <!-- REPORT 3 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Publication</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Publication</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Publication</p>
         <h3>REPORT-TITLE-3</h3>
@@ -351,8 +460,16 @@
     </div>
 
     <!-- REPORT 4 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Policy Brief</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Policy Brief</p>
         <h3>REPORT-TITLE-4</h3>
@@ -365,8 +482,16 @@
     </div>
 
     <!-- REPORT 5 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Case Study</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Case Study</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Case Study</p>
         <h3>REPORT-TITLE-5</h3>
@@ -379,8 +504,16 @@
     </div>
 
     <!-- REPORT 6 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Publication</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Publication</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Publication</p>
         <h3>REPORT-TITLE-6</h3>
@@ -393,8 +526,16 @@
     </div>
 
     <!-- REPORT 7 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Policy Brief</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Policy Brief</p>
         <h3>REPORT-TITLE-7</h3>
@@ -407,8 +548,16 @@
     </div>
 
     <!-- REPORT 8 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Case Study</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Case Study</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Case Study</p>
         <h3>REPORT-TITLE-8</h3>
@@ -421,8 +570,16 @@
     </div>
 
     <!-- REPORT 9 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Publication</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Publication</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Publication</p>
         <h3>REPORT-TITLE-9</h3>
@@ -435,8 +592,16 @@
     </div>
 
     <!-- REPORT 10 -->
-    <div class="report-card">
-      <div class="report-thumb-placeholder">📄<span>Policy Brief</span></div>
+    <div class="report-card reveal">
+      <div class="report-thumb-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="10" y="6" width="28" height="36" rx="2"/>
+          <line x1="16" y1="16" x2="32" y2="16"/>
+          <line x1="16" y1="23" x2="32" y2="23"/>
+          <line x1="16" y1="30" x2="26" y2="30"/>
+        </svg>
+        <span>Policy Brief</span>
+      </div>
       <div class="report-body">
         <p class="report-tag">Policy Brief</p>
         <h3>REPORT-TITLE-10</h3>
@@ -452,8 +617,36 @@
 </section>
 
 <div class="page-footer">
-  © 2026 Hillary Kitel · <a href="index.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Back to Portfolio</a>
+  © 2026 Hillary Kitel · <a href="index.html">Back to Portfolio</a>
 </div>
 
+<script>
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  let scrollTicking = false;
+
+  function updateOnScroll() {
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollY / docHeight : 0;
+    scrollProgressEl.style.transform = `scaleX(${progress})`;
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(updateOnScroll);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  updateOnScroll();
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(r => revealObserver.observe(r));
+</script>
 </body>
 </html>
