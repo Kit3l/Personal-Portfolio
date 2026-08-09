@@ -3,13 +3,14 @@
 ## About the Owner
 - Name: Hillary Pchumba Kitel
 - Role: Programmes & Communications Officer, DLCI (Drylands Learning & Capacity Building Initiative)
+- Positioning (as of 2026-08-09): repositioning from communications-first to PROGRAMMES-FIRST — targeting programme/project management roles. Anchor title: "Programmes & Communications Professional". Supporting line: "Programme Delivery · Strategic Communications · Digital Systems".
 - Sector: NGO / international development / pastoralist land rights & advocacy
 - Location: Nairobi, Kenya
 - Domain: kitel.site (hosted on GitHub Pages)
 - Email: pchumbakitel@gmail.com
 - Phone: +254 713 546 522
 - LinkedIn: linkedin.com/in/kitel-hillary-19463020a
-- Education: MA Development Communication, Daystar University (ongoing)
+- Education: BSc Cooperative Business (Marketing Option), The Cooperative University of Kenya (undergraduate). Currently pursuing a Master's in Project Planning and Management (ongoing — institution not yet specified on site).
 - Membership: Public Relations Society of Kenya (PRSK)
 
 ## Real, Verified Metrics (use these — do not invent numbers)
@@ -43,7 +44,7 @@ Calm, warm, sophisticated — the visual language of a premium wellness or edito
 - Motion: subtle only, unchanged from before — gentle staggered fade-up on scroll, slow hover eases, nothing bounces or spins.
 
 ## Requirements
-- SEO: full meta tags, Open Graph, Twitter cards, canonical URL, semantic HTML, one H1 per page, alt text on all images, descriptive link text. Target keywords: "Communications Officer Kenya", "NGO Digital Marketing Nairobi", "Strategic Communications development sector".
+- SEO: full meta tags, Open Graph, Twitter cards, canonical URL, semantic HTML, one H1 per page, alt text on all images, descriptive link text. Target keywords (as of 2026-08-09 programmes-first repositioning): "Programme Officer Kenya", "Project Management NGO", "Development sector Nairobi", "Strategic Communications".
 - AI/AEO optimization: JSON-LD structured data (Person schema with name, role, employer, location, sameAs links); clear entity definition; consider an FAQ section.
 - Add sitemap.xml and robots.txt.
 - Contact form stays mailto-based (no backend). Request CV button pre-fills the form.
