@@ -627,15 +627,18 @@
       font-style: italic;
     }
 
-    /* ── FAQ — cream, collapsible accordion ── */
-    #faq {
-      background: var(--cream);
-      padding: 150px 5% 140px;
+    /* ── FAQ — collapsible accordion, lives in the footer's left column ── */
+    .footer-faq-header {
+      max-width: none;
+      margin: 0 0 2.5rem;
+      text-align: left;
     }
+    .footer-faq-header .section-label::after { margin: 0.9rem 0 0; }
+    .footer-faq-header .section-title { text-align: left; font-size: clamp(1.7rem, 2.6vw, 2.3rem); }
 
     .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: none;
+      margin: 0;
     }
 
     .faq-item {
@@ -748,9 +751,13 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 4rem;
       align-items: start;
     }
+
+    .footer-faq { min-width: 0; }
+
+    .footer-contact { display: flex; flex-direction: column; gap: 2.5rem; }
 
     .footer-info h2 {
       font-family: 'Playfair Display', serif;
@@ -901,7 +908,9 @@
       .projects-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .faq-item { gap: 1rem; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 3.5rem; }
+      .footer-contact { order: 1; }
+      .footer-faq { order: 2; }
       .form-row { grid-template-columns: 1fr; }
       .nav-links { gap: 1rem; }
       .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
@@ -994,7 +1003,7 @@
 <section id="about">
   <div class="section-header reveal">
     <p class="section-label">About Me</p>
-    <h2 class="section-title">Programme Delivery. Communications Impact.</h2>
+    <h2 class="section-title">Programme Delivery. Communications Impact</h2>
   </div>
   <div class="about-grid reveal">
     <div class="about-text">
@@ -1116,127 +1125,128 @@
   <p class="testimonial-note">* Testimonials represent the nature of feedback received. Direct quotes available on request.</p>
 </section>
 
-<!-- ═══ FAQ ═══ -->
-<section id="faq">
-  <div class="section-header reveal">
-    <p class="section-label">FAQ</p>
-    <h2 class="section-title">Frequently Asked Questions</h2>
-  </div>
-
-  <div class="faq-list">
-    <div class="faq-item reveal">
-      <span class="faq-index" aria-hidden="true">01</span>
-      <div class="faq-body">
-        <h3 class="faq-question-heading">
-          <button type="button" class="faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-panel-1">
-            <span class="faq-question-text">What does Hillary Kitel do?</span>
-            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
-          </button>
-        </h3>
-        <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
-          <div class="faq-panel-inner">
-            <p class="faq-answer">Hillary Pchumba Kitel is a programmes and communications professional based in Nairobi, Kenya, working across programme delivery, strategic communications, and digital systems in the NGO and development sector. As Programmes and Communications Officer at the Drylands Learning and Capacity Building Initiative (DLCI), he has led core activities on multi-organisation programmes — including convening the Youth Community of Practice — designed a <a href="#projects">monitoring and evaluation system</a>, led high-impact communications campaigns, built <a href="#projects">four websites</a>, and administers the organisation's Microsoft 365 environment. He is currently pursuing a Master's in Project Planning and Management.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <span class="faq-index" aria-hidden="true">02</span>
-      <div class="faq-body">
-        <h3 class="faq-question-heading">
-          <button type="button" class="faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-panel-2">
-            <span class="faq-question-text">What sectors and organisations has Hillary worked in?</span>
-            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
-          </button>
-        </h3>
-        <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
-          <div class="faq-panel-inner">
-            <p class="faq-answer">Hillary has over four years of experience in the NGO and development sector, focusing on pastoralist land rights, policy advocacy, and community development. He has worked with the Drylands Learning and Capacity Building Initiative (DLCI), Spring Personnel Limited, and Mwalimu National Sacco, spanning programme delivery, development communications, corporate digital marketing, and customer engagement.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <span class="faq-index" aria-hidden="true">03</span>
-      <div class="faq-body">
-        <h3 class="faq-question-heading">
-          <button type="button" class="faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-panel-3">
-            <span class="faq-question-text">What are Hillary Kitel's key achievements?</span>
-            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
-          </button>
-        </h3>
-        <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
-          <div class="faq-panel-inner">
-            <p class="faq-answer">Hillary has led core activities across multi-organisation programmes and supported three closed development projects improving the lives of over 100,000 beneficiaries. He grew his organisation's combined social media following by over 600% across four years, generating more than 500,000 impressions, and led communications for the <a href="#projects">Pastoralist Leadership Summit</a>, achieving over 100,000 digital interactions. He has produced 20 institutional <a href="reports.html">reports</a>, edited 10 policy briefs, created over 10,000 <a href="media.html">photo and video assets</a>, and designed a <a href="#projects">monitoring and evaluation system</a>.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <span class="faq-index" aria-hidden="true">04</span>
-      <div class="faq-body">
-        <h3 class="faq-question-heading">
-          <button type="button" class="faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-panel-4">
-            <span class="faq-question-text">What skills and tools does Hillary specialise in?</span>
-            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
-          </button>
-        </h3>
-        <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
-          <div class="faq-panel-inner">
-            <p class="faq-answer">Hillary combines programme delivery skills — activity coordination, multi-stakeholder facilitation, capacity building, and monitoring and evaluation (including KoboToolbox) — with strategic communications, digital marketing, and technical expertise. He builds websites (WordPress, HTML/CSS/JavaScript), works with data visualisation, and administers Microsoft 365 environments, making him a rare hybrid across programmes, communications, and digital systems.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item reveal">
-      <span class="faq-index" aria-hidden="true">05</span>
-      <div class="faq-body">
-        <h3 class="faq-question-heading">
-          <button type="button" class="faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-panel-5">
-            <span class="faq-question-text">How can I contact Hillary Kitel or request his CV?</span>
-            <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
-          </button>
-        </h3>
-        <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
-          <div class="faq-panel-inner">
-            <p class="faq-answer">You can contact Hillary via the <a href="#footer">contact form</a> on this site, by <a href="mailto:pchumbakitel@gmail.com">email</a> at pchumbakitel@gmail.com, or through <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>. His CV is available on request — use the "Request CV" option and he will respond with a version tailored to the opportunity.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
-<!-- ═══ FOOTER / CONTACT ═══ -->
+<!-- ═══ FOOTER / CONTACT + FAQ ═══ -->
 <footer id="footer">
   <div class="footer-inner">
-    <div class="footer-info reveal">
-      <h2>Let's work together.</h2>
-      <p>Open to programme management, strategic communications, and NGO/development sector roles. Drop me a message and I'll get back to you promptly.</p>
-      <div class="footer-socials">
-        <a href="mailto:pchumbakitel@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank">LinkedIn</a>
-        <span onclick="this.textContent = '+254 713 546 522'">Phone</span>
-        <a href="#footer" onclick="prefillForm()">Request CV</a>
+    <div class="footer-faq">
+      <div class="section-header footer-faq-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <span class="faq-index" aria-hidden="true">01</span>
+          <div class="faq-body">
+            <h3 class="faq-question-heading">
+              <button type="button" class="faq-trigger" id="faq-trigger-1" aria-expanded="false" aria-controls="faq-panel-1">
+                <span class="faq-question-text">What does Hillary Kitel do?</span>
+                <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">Hillary Pchumba Kitel is a programmes and communications professional based in Nairobi, Kenya, working across programme delivery, strategic communications, and digital systems in the NGO and development sector. As Programmes and Communications Officer at the Drylands Learning and Capacity Building Initiative (DLCI), he has led core activities on multi-organisation programmes — including convening the Youth Community of Practice — designed a <a href="#projects">monitoring and evaluation system</a>, led high-impact communications campaigns, built <a href="#projects">four websites</a>, and administers the organisation's Microsoft 365 environment. He is currently pursuing a Master's in Project Planning and Management.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-index" aria-hidden="true">02</span>
+          <div class="faq-body">
+            <h3 class="faq-question-heading">
+              <button type="button" class="faq-trigger" id="faq-trigger-2" aria-expanded="false" aria-controls="faq-panel-2">
+                <span class="faq-question-text">What sectors and organisations has Hillary worked in?</span>
+                <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">Hillary has over four years of experience in the NGO and development sector, focusing on pastoralist land rights, policy advocacy, and community development. He has worked with the Drylands Learning and Capacity Building Initiative (DLCI), Spring Personnel Limited, and Mwalimu National Sacco, spanning programme delivery, development communications, corporate digital marketing, and customer engagement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-index" aria-hidden="true">03</span>
+          <div class="faq-body">
+            <h3 class="faq-question-heading">
+              <button type="button" class="faq-trigger" id="faq-trigger-3" aria-expanded="false" aria-controls="faq-panel-3">
+                <span class="faq-question-text">What are Hillary Kitel's key achievements?</span>
+                <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">Hillary has led core activities across multi-organisation programmes and supported three closed development projects improving the lives of over 100,000 beneficiaries. He grew his organisation's combined social media following by over 600% across four years, generating more than 500,000 impressions, and led communications for the <a href="#projects">Pastoralist Leadership Summit</a>, achieving over 100,000 digital interactions. He has produced 20 institutional <a href="reports.html">reports</a>, edited 10 policy briefs, created over 10,000 <a href="media.html">photo and video assets</a>, and designed a <a href="#projects">monitoring and evaluation system</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-index" aria-hidden="true">04</span>
+          <div class="faq-body">
+            <h3 class="faq-question-heading">
+              <button type="button" class="faq-trigger" id="faq-trigger-4" aria-expanded="false" aria-controls="faq-panel-4">
+                <span class="faq-question-text">What skills and tools does Hillary specialise in?</span>
+                <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">Hillary combines programme delivery skills — activity coordination, multi-stakeholder facilitation, capacity building, and monitoring and evaluation (including KoboToolbox) — with strategic communications, digital marketing, and technical expertise. He builds websites (WordPress, HTML/CSS/JavaScript), works with data visualisation, and administers Microsoft 365 environments, making him a rare hybrid across programmes, communications, and digital systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <span class="faq-index" aria-hidden="true">05</span>
+          <div class="faq-body">
+            <h3 class="faq-question-heading">
+              <button type="button" class="faq-trigger" id="faq-trigger-5" aria-expanded="false" aria-controls="faq-panel-5">
+                <span class="faq-question-text">How can I contact Hillary Kitel or request his CV?</span>
+                <span class="faq-icon" aria-hidden="true"><span class="faq-icon-h"></span><span class="faq-icon-v"></span></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
+              <div class="faq-panel-inner">
+                <p class="faq-answer">You can contact Hillary via the <a href="#footer">contact form</a> on this site, by <a href="mailto:pchumbakitel@gmail.com">email</a> at pchumbakitel@gmail.com, or through <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>. His CV is available on request — use the "Request CV" option and he will respond with a version tailored to the opportunity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="reveal">
-      <div class="contact-form">
-        <div class="form-row">
-          <input type="text" id="fname" placeholder="Your Name" />
-          <input type="email" id="femail" placeholder="Your Email" />
+    <div class="footer-contact">
+      <div class="footer-info reveal">
+        <h2>Let's work together</h2>
+        <p>Open to programme management, strategic communications, and NGO/development sector roles. Drop me a message and I'll get back to you promptly.</p>
+        <div class="footer-socials">
+          <a href="mailto:pchumbakitel@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank">LinkedIn</a>
+          <span onclick="this.textContent = '+254 713 546 522'">Phone</span>
+          <a href="#footer" onclick="prefillForm()">Request CV</a>
         </div>
-        <input type="text" id="fsubject" placeholder="Subject" />
-        <textarea id="fmessage" placeholder="Your message…"></textarea>
-        <button class="btn-send" onclick="handleFormSubmit()">Send Message</button>
-        <div class="form-success" id="formSuccess">✓ Thanks! I'll be in touch shortly.</div>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-form">
+          <div class="form-row">
+            <input type="text" id="fname" placeholder="Your Name" />
+            <input type="email" id="femail" placeholder="Your Email" />
+          </div>
+          <input type="text" id="fsubject" placeholder="Subject" />
+          <textarea id="fmessage" placeholder="Your message…"></textarea>
+          <button class="btn-send" onclick="handleFormSubmit()">Send Message</button>
+          <div class="form-success" id="formSuccess">✓ Thanks! I'll be in touch shortly.</div>
+        </div>
       </div>
     </div>
   </div>
