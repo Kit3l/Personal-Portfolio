@@ -149,6 +149,34 @@
     .nav-links .btn-cv { color: var(--sand); }
     .nav-links .btn-cv:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
 
+    /* ── NAV TOGGLE (hamburger, mobile only) ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .nav-toggle-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--sand);
+      border-radius: 1px;
+      transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── PAGE HEADER — green, centered, restrained ── */
     .page-header {
       min-height: 44vh;
@@ -367,9 +395,47 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
+      .page-header { padding: calc(var(--nav-h) + 60px) 7% 60px; }
+      .reports-section { padding: 90px 6%; }
       .reports-grid { grid-template-columns: 1fr; }
-      .nav-links { gap: 1rem; }
-      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+
+      /* Hamburger nav — all links reachable via a full-width dropdown panel */
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--sage);
+        max-height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0.35s;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      }
+      .nav-links.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .nav-links li { width: 100%; border-top: 1px solid rgba(244,241,232,0.12); }
+      .nav-links li:first-child { border-top: none; }
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        min-height: 56px;
+        width: 100%;
+        padding: 0 7%;
+        font-size: 0.85rem;
+        border-bottom: none;
+      }
     }
   </style>
 </head>
@@ -381,7 +447,12 @@
 <header>
 <nav>
   <a href="index.html" class="nav-logo">𝕳𝕶</a>
-  <ul class="nav-links">
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html#about">About Me</a></li>
     <li><a href="index.html#projects">Projects</a></li>
     <li><a href="media.html#videos">Videos</a></li>
@@ -654,6 +725,24 @@
 </footer>
 
 <script>
+  // ── Mobile hamburger nav ──
+  (function initNavToggle() {
+    const navToggle = document.getElementById('navToggle');
+    const navLinksEl = document.getElementById('navLinks');
+    if (!navToggle || !navLinksEl) return;
+    function closeMenu() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navLinksEl.classList.remove('is-open');
+    }
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navLinksEl.classList.toggle('is-open', !isOpen);
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+  })();
+
   const scrollProgressEl = document.getElementById('scrollProgress');
   let scrollTicking = false;
 

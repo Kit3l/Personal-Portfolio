@@ -245,6 +245,34 @@
     .nav-links .btn-cv { color: var(--sand); }
     .nav-links .btn-cv:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
 
+    /* ── NAV TOGGLE (hamburger, mobile only) ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .nav-toggle-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--sand);
+      border-radius: 1px;
+      transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── HERO — centered, restrained ── */
     #top {
       min-height: 100vh;
@@ -905,20 +933,64 @@
     @media (max-width: 768px) {
       #top { padding: calc(var(--nav-h) + 60px) 7% 70px; gap: 2.5rem; }
       .hero-text h1 { font-size: clamp(1.5rem, 7vw, 2.5rem); }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 3rem 6%; }
       .stat { border-left: none; border-top: 1px solid rgba(42,42,36,0.14); }
       .stat:nth-child(4n+1) { border-left: none; }
       .stat:nth-child(-n+2) { border-top: none; }
+      #about, #projects { padding: 90px 6% 80px; }
+      #testimonials { padding: 90px 6%; }
+      footer { padding: 90px 6% 40px; }
       .about-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .faq-item { gap: 1rem; }
+      .faq-trigger { padding: 0.6rem 0; margin: -0.6rem 0; }
       .footer-inner { grid-template-columns: 1fr; gap: 3.5rem; }
       .footer-contact { order: 1; }
       .footer-faq { order: 2; }
+      .footer-socials { gap: 0.5rem 1.75rem; }
+      .footer-socials a, .footer-socials span { padding: 0.65rem 0; margin: -0.65rem 0; }
       .form-row { grid-template-columns: 1fr; }
-      .nav-links { gap: 1rem; }
-      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+      .contact-form input, .contact-form textarea { padding: 0.9rem 1rem; }
+      .btn-send { padding: 0.9rem 2rem; }
+
+      /* Hamburger nav — all links reachable via a full-width dropdown panel */
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--sage);
+        max-height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0.35s;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      }
+      .nav-links.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .nav-links li { width: 100%; border-top: 1px solid rgba(244,241,232,0.12); }
+      .nav-links li:first-child { border-top: none; }
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        min-height: 56px;
+        width: 100%;
+        padding: 0 7%;
+        font-size: 0.85rem;
+        border-bottom: none;
+      }
     }
   </style>
 </head>
@@ -930,7 +1002,12 @@
 <header>
 <nav>
   <a href="#top" class="nav-logo">𝕳𝕶</a>
-  <ul class="nav-links">
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About Me</a></li>
     <li><a href="#projects">My Projects</a></li>
     <li><a href="media.html">Media</a></li>
@@ -1323,6 +1400,24 @@
     `).join('');
   }
   renderTestimonials();
+
+  // ── Mobile hamburger nav ──
+  (function initNavToggle() {
+    const navToggle = document.getElementById('navToggle');
+    const navLinksEl = document.getElementById('navLinks');
+    if (!navToggle || !navLinksEl) return;
+    function closeMenu() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navLinksEl.classList.remove('is-open');
+    }
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navLinksEl.classList.toggle('is-open', !isOpen);
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+  })();
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
