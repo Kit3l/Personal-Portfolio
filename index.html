@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Favicon — "HK" monogram, sand/gold on muted green, inline SVG (no external file) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%23444b38'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Georgia,%20serif'%20font-size='27'%20font-weight='700'%20letter-spacing='0.5'%20fill='%23c9a86a'%20text-anchor='middle'%3EHK%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%23444b38'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Georgia,%20serif'%20font-size='27'%20font-weight='700'%20letter-spacing='0.5'%20fill='%23c9a86a'%20text-anchor='middle'%3EHK%3C/text%3E%3C/svg%3E" />
+
   <!-- Primary SEO -->
   <title>Hillary Kitel — Programmes & Communications Professional</title>
   <meta name="description" content="Hillary Kitel — Programmes & Communications professional in Nairobi, Kenya: project management, strategic communications, and digital systems for NGOs." />
@@ -334,9 +338,10 @@
     .hero-cta:hover { border-color: var(--sand); color: var(--sand-deep); }
 
     /* Softly framed portrait — rounded corners, thin sand hairline, no full-bleed */
+    /* Width is synced via JS to match the rendered width of the hero heading/subtitle column; this is the pre-JS/fallback size */
     .hero-img-wrap {
       position: relative;
-      width: clamp(230px, 24vw, 300px);
+      width: min(70vw, 460px);
       aspect-ratio: 4 / 5;
       border-radius: 20px;
       overflow: hidden;
@@ -1335,6 +1340,7 @@
       prefixEl.textContent = prefixText;
       nameEl.textContent = nameText;
       cursorEl.classList.add('typing-done');
+      syncHeroImageWidth();
       return;
     }
 
@@ -1357,6 +1363,7 @@
       typeText(prefixEl, prefixText, TYPE_SPEED, () => {
         typeText(nameEl, nameText, TYPE_SPEED, () => {
           cursorEl.classList.add('typing-done');
+          syncHeroImageWidth();
         });
       });
     }, 300);
@@ -1438,6 +1445,22 @@
   const heroSection = document.getElementById('top');
   const heroText = document.querySelector('.hero-text');
   const heroImgWrap = document.querySelector('.hero-img-wrap');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+
+  // ── Keep hero photo width aligned with the rendered width of the subtitle column ──
+  function syncHeroImageWidth() {
+    if (!heroSubtitle || !heroImgWrap) return;
+    // Skip while the headline is still typing out so the photo doesn't shrink/grow mid-animation
+    const cursor = document.getElementById('typingCursor');
+    if (cursor && !cursor.classList.contains('typing-done') && !prefersReducedMotion) return;
+    const width = heroSubtitle.getBoundingClientRect().width;
+    if (width > 0) heroImgWrap.style.width = width + 'px';
+  }
+  syncHeroImageWidth();
+  window.addEventListener('resize', syncHeroImageWidth);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncHeroImageWidth);
+  }
 
   let scrollTicking = false;
 
