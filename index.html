@@ -888,6 +888,22 @@
       font-size: 0.78rem;
       color: rgba(42,42,36,0.4);
     }
+    .footer-bottom a {
+      color: rgba(42,42,36,0.4);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .footer-bottom a:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
+
+    .footer-attribution {
+      max-width: 1100px;
+      margin: 3.5rem auto 0;
+      text-align: center;
+      font-size: 0.72rem;
+      font-style: italic;
+      color: rgba(42,42,36,0.4);
+    }
 
     /* ── SCROLL PROGRESS ── */
     .scroll-progress {
@@ -1333,9 +1349,11 @@
     </div>
   </div>
 
+  <p class="footer-attribution reveal">Work shared with the approval of the organisations involved.</p>
+
   <div class="footer-bottom">
     <span>© 2026 Hillary Kitel · All Rights Reserved</span>
-    <span>Nairobi, Kenya</span>
+    <span>Nairobi, Kenya · <a href="privacy.html">Privacy Policy</a></span>
   </div>
 </footer>
 

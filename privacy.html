@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon — "HK" monogram, sand/gold on muted green, inline SVG (no external file) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%23444b38'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Georgia,%20serif'%20font-size='27'%20font-weight='700'%20letter-spacing='0.5'%20fill='%23c9a86a'%20text-anchor='middle'%3EHK%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%23444b38'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Georgia,%20serif'%20font-size='27'%20font-weight='700'%20letter-spacing='0.5'%20fill='%23c9a86a'%20text-anchor='middle'%3EHK%3C/text%3E%3C/svg%3E" />
+
+  <!-- Primary SEO -->
+  <title>Privacy Policy — Hillary Kitel</title>
+  <meta name="description" content="Privacy Policy for kitel.site — how Hillary Kitel collects, uses, and protects personal data shared through this portfolio site." />
+  <meta name="author" content="Hillary Kitel" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kitel.site/privacy.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Hillary Kitel" />
+  <meta property="og:title" content="Privacy Policy — Hillary Kitel" />
+  <meta property="og:description" content="Privacy Policy for kitel.site — how Hillary Kitel collects, uses, and protects personal data shared through this portfolio site." />
+  <meta property="og:image" content="https://kitel.site/Images/profile.jpg" />
+  <meta property="og:url" content="https://kitel.site/privacy.html" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy — Hillary Kitel" />
+  <meta name="twitter:description" content="Privacy Policy for kitel.site — how Hillary Kitel collects, uses, and protects personal data shared through this portfolio site." />
+  <meta name="twitter:image" content="https://kitel.site/Images/profile.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage:      #444b38;
+      --cream:     #f4f1e8;
+      --cream-deep:#ece6d6;
+      --charcoal:  #2a2a24;
+      --sand:      #c9a86a;
+      --sand-deep: #b3925a;
+      --nav-h:     60px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── TYPE HELPERS (match index.html) ── */
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sand);
+      font-weight: 600;
+      text-align: center;
+    }
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 1px;
+      background: var(--sand);
+      opacity: 0.7;
+      margin: 0.9rem auto 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--sand);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: transform 0.5s var(--ease), color 0.4s var(--ease);
+    }
+    .nav-logo:hover { transform: scale(1.08); color: var(--sand-deep); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--cream);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .nav-links a:hover { color: var(--sand); border-color: var(--sand); }
+    .nav-links .btn-cv { color: var(--sand); }
+    .nav-links .btn-cv:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
+
+    /* ── NAV TOGGLE (hamburger, mobile only) ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .nav-toggle-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--sand);
+      border-radius: 1px;
+      transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+    }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── PAGE HEADER — green, centered, restrained ── */
+    .page-header {
+      min-height: 38vh;
+      padding: calc(var(--nav-h) + 90px) 6% 70px;
+      background: var(--sage);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.4rem;
+    }
+
+    .page-header .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sand);
+      font-weight: 600;
+    }
+
+    .page-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.4rem, 5.2vw, 3.6rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .page-header p {
+      color: rgba(244,241,232,0.8);
+      font-size: 1rem;
+      max-width: 580px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.8;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      color: rgba(244,241,232,0.55);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.4s var(--ease);
+    }
+    .back-link:hover { color: var(--sand); }
+
+    /* ── POLICY CONTENT ── */
+    .policy-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 110px 6% 130px;
+    }
+
+    .policy-updated {
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sand-deep);
+      font-weight: 600;
+      margin-bottom: 3.5rem;
+    }
+
+    .policy-block {
+      padding: 2.4rem 0;
+      border-top: 1px solid rgba(42,42,36,0.12);
+    }
+    .policy-block:first-of-type { border-top: none; padding-top: 0; }
+
+    .policy-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-variant: small-caps;
+      letter-spacing: 0.03em;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1.1rem;
+    }
+
+    .policy-block p {
+      color: rgba(42,42,36,0.68);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .policy-block p:last-child { margin-bottom: 0; }
+
+    .policy-block ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    .policy-block li {
+      color: rgba(42,42,36,0.68);
+      font-size: 0.95rem;
+      line-height: 1.85;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .policy-block li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75em;
+      width: 6px;
+      height: 1px;
+      background: var(--sand);
+    }
+
+    .policy-block a {
+      color: var(--sand-deep);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(179,146,90,0.45);
+      transition: border-color 0.4s var(--ease), color 0.4s var(--ease);
+    }
+    .policy-block a:hover { color: var(--charcoal); border-bottom-color: var(--charcoal); }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: var(--cream);
+      color: rgba(42,42,36,0.45);
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.78rem;
+      border-top: 1px solid rgba(42,42,36,0.1);
+    }
+    .page-footer a { color: rgba(42,42,36,0.5); text-decoration: none; border-bottom: 1px solid transparent; transition: color 0.4s var(--ease), border-color 0.4s var(--ease); }
+    .page-footer a:hover { color: var(--sand-deep); border-bottom-color: var(--sand-deep); }
+    .footer-attribution {
+      font-size: 0.72rem;
+      color: rgba(42,42,36,0.4);
+      margin-bottom: 0.6rem;
+      font-style: italic;
+    }
+
+    /* ── SCROLL PROGRESS ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--sand);
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      z-index: 1100;
+      will-change: transform;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      transition-delay: var(--reveal-delay, 0s);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .page-header { padding: calc(var(--nav-h) + 60px) 7% 60px; }
+      .policy-content { padding: 90px 7% 90px; }
+      .policy-block { padding: 2rem 0; }
+
+      /* Hamburger nav — all links reachable via a full-width dropdown panel */
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--sage);
+        max-height: calc(100vh - var(--nav-h));
+        overflow-y: auto;
+        transform: translateY(-8px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s var(--ease), transform 0.35s var(--ease), visibility 0.35s;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      }
+      .nav-links.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .nav-links li { width: 100%; border-top: 1px solid rgba(244,241,232,0.12); }
+      .nav-links li:first-child { border-top: none; }
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        min-height: 56px;
+        width: 100%;
+        padding: 0 7%;
+        font-size: 0.85rem;
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ═══ NAV ═══ -->
+<header>
+<nav>
+  <a href="index.html" class="nav-logo">𝕳𝕶</a>
+  <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+    <span class="nav-toggle-bar"></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#about">About Me</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="media.html#videos">Videos</a></li>
+    <li><a href="media.html#photos">Photos</a></li>
+    <li><a href="index.html#footer" class="btn-cv">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<main>
+
+<!-- ═══ PAGE HEADER ═══ -->
+<div class="page-header">
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p>How I collect, use, and protect your personal data when you visit this site or get in touch.</p>
+  <a href="index.html" class="back-link">← Back to Portfolio</a>
+</div>
+
+<!-- ═══ POLICY CONTENT ═══ -->
+<article class="policy-content">
+  <p class="policy-updated reveal">Last updated: 28 August 2026</p>
+
+  <p class="reveal" style="color: rgba(42,42,36,0.68); font-size: 0.95rem; line-height: 1.85; margin-bottom: 2.4rem;">This Privacy Policy explains how Hillary Kitel ("I", "me", "my") collects, uses, and protects your personal data when you visit kitel.site or contact me through this website.</p>
+
+  <section class="policy-block reveal">
+    <h2>Who I Am</h2>
+    <p>This is the personal portfolio website of Hillary Pchumba Kitel, based in Nairobi, Kenya. You can reach me at <a href="mailto:pchumbakitel@gmail.com">pchumbakitel@gmail.com</a> regarding any privacy matter or this policy.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>What Data I Collect</h2>
+    <p>I only collect personal data that you choose to provide through the contact form on this site. This includes:</p>
+    <ul>
+      <li>Your name</li>
+      <li>Your email address</li>
+      <li>The subject and content of your message</li>
+    </ul>
+    <p>I do not use tracking cookies, analytics, or advertising on this site, and I do not collect data automatically in the background.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>How Your Data Is Handled</h2>
+    <p>The contact form on this site opens your own email application with your message pre-filled — it does not store your information on any server or database owned by this site. When you send the message, it is delivered to my personal email inbox (pchumbakitel@gmail.com) through your chosen email provider.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>How I Use Your Data</h2>
+    <p>I use the information you send solely to:</p>
+    <ul>
+      <li>Respond to your enquiry or message</li>
+      <li>Follow up on opportunities, collaborations, or requests (such as a CV request)</li>
+    </ul>
+    <p>I never sell, rent, or share your personal data with third parties.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>How Long I Keep Your Data</h2>
+    <p>I keep email correspondence only as long as necessary to respond to and follow up on your enquiry. You may ask me to delete your correspondence at any time.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>Data Security</h2>
+    <p>Your messages are stored within my personal email account, which is protected by strong passwords and standard security measures provided by the email provider.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>Third-Party Services</h2>
+    <p>This site is hosted on GitHub Pages. Media content may link to external platforms such as YouTube and Google Drive, which have their own privacy policies. This site embeds YouTube videos, which may set cookies through YouTube once you interact with them — please refer to Google's privacy policy for details.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>Content &amp; Attribution</h2>
+    <p>The work, projects, reports, media, and case studies featured on this site were produced during my professional engagements and are shared with the awareness and approval of the organisations and teams I have worked with. All institutional work remains the intellectual property of the respective organisations. This portfolio presents selected work to demonstrate my professional contribution and capability.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>Your Rights</h2>
+    <p>Depending on your location, you may have the right to access, correct, or request deletion of the personal data you have shared with me, and to object to its use. To exercise any of these rights, email me at <a href="mailto:pchumbakitel@gmail.com">pchumbakitel@gmail.com</a>.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>Changes To This Policy</h2>
+    <p>I may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date.</p>
+  </section>
+
+  <section class="policy-block reveal">
+    <h2>Contact</h2>
+    <p>For any questions about this Privacy Policy or your data, contact me at <a href="mailto:pchumbakitel@gmail.com">pchumbakitel@gmail.com</a>.</p>
+  </section>
+</article>
+
+</main>
+
+<footer>
+<div class="page-footer">
+  <p class="footer-attribution">Work shared with the approval of the organisations involved.</p>
+  <p>© 2026 Hillary Kitel · <a href="index.html">Back to Portfolio</a></p>
+</div>
+</footer>
+
+<script>
+  // ── Mobile hamburger nav ──
+  (function initNavToggle() {
+    const navToggle = document.getElementById('navToggle');
+    const navLinksEl = document.getElementById('navLinks');
+    if (!navToggle || !navLinksEl) return;
+    function closeMenu() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navLinksEl.classList.remove('is-open');
+    }
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      navLinksEl.classList.toggle('is-open', !isOpen);
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
+  })();
+
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  let scrollTicking = false;
+
+  function updateOnScroll() {
+    const scrollY = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollY / docHeight : 0;
+    scrollProgressEl.style.transform = `scaleX(${progress})`;
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(updateOnScroll);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  updateOnScroll();
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(r => revealObserver.observe(r));
+</script>
+</body>
+</html>
