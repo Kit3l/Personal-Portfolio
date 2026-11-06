@@ -10,7 +10,7 @@
 
   <!-- Primary SEO -->
   <title>Hillary Kitel — Programmes & Communications Professional</title>
-  <meta name="description" content="Hillary Kitel — Programmes & Communications professional in Nairobi, Kenya: project management, strategic communications, and digital systems for NGOs." />
+  <meta name="description" content="Hillary Kitel — programme delivery, strategic communications, and digital systems for mission-driven organisations in Nairobi and the wider development sector." />
   <meta name="author" content="Hillary Kitel" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://kitel.site/" />
@@ -19,14 +19,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Hillary Kitel" />
   <meta property="og:title" content="Hillary Kitel — Programmes & Communications Professional" />
-  <meta property="og:description" content="Hillary Kitel — Programmes & Communications professional in Nairobi, Kenya: project management, strategic communications, and digital systems for NGOs." />
+  <meta property="og:description" content="Hillary Kitel — programme delivery, strategic communications, and digital systems for mission-driven organisations in Nairobi and the wider development sector." />
   <meta property="og:image" content="https://kitel.site/Images/profile.jpg" />
   <meta property="og:url" content="https://kitel.site/" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hillary Kitel — Programmes & Communications Professional" />
-  <meta name="twitter:description" content="Hillary Kitel — Programmes & Communications professional in Nairobi, Kenya: project management, strategic communications, and digital systems for NGOs." />
+  <meta name="twitter:description" content="Hillary Kitel — programme delivery, strategic communications, and digital systems for mission-driven organisations in Nairobi and the wider development sector." />
   <meta name="twitter:image" content="https://kitel.site/Images/profile.jpg" />
 
   <!-- JSON-LD: Person (AEO / AI citation) -->
@@ -121,7 +121,7 @@
         "name": "How can I contact Hillary Kitel or request his CV?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can contact Hillary via the contact form on this site, by email at pchumbakitel@gmail.com, or through LinkedIn. His CV is available on request — use the \"Request CV\" option and he will respond with a version tailored to the opportunity."
+          "text": "You can contact Hillary via the contact form on this site, by email at pchumbakitel@gmail.com, or through LinkedIn. His CV is available on request through the link beside the contact form, and he will respond with a version tailored to the opportunity."
         }
       }
     ]
@@ -242,8 +242,8 @@
     }
     .nav-links a:hover { color: var(--sand); border-color: var(--sand); }
 
-    .nav-links .btn-cv { color: var(--sand); }
-    .nav-links .btn-cv:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
+    .nav-links .btn-cta { color: var(--sand); }
+    .nav-links .btn-cta:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
 
     /* ── NAV TOGGLE (hamburger, mobile only) ── */
     .nav-toggle {
@@ -520,6 +520,98 @@
       transition: border-color 0.4s var(--ease), color 0.4s var(--ease);
     }
     .tag:hover { border-color: var(--sand-deep); color: var(--sand-deep); }
+
+    /* ── CAPABILITIES — warm bone (sits between green About and cream Projects) ── */
+    #capabilities {
+      background: var(--cream-deep);
+      color: var(--charcoal);
+      padding: 150px 5% 140px;
+    }
+    .capabilities-header p:last-child {
+      max-width: 500px;
+      margin: 0 auto;
+      color: rgba(42,42,36,0.65);
+      font-size: 0.95rem;
+    }
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .capability-card {
+      background: #faf8f1;
+      border: 1px solid rgba(42,42,36,0.08);
+      border-radius: 10px;
+      padding: 2.6rem 2.4rem 2.3rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 14px 34px rgba(42,42,36,0.07);
+      transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), border-color 0.5s var(--ease);
+    }
+    .capability-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 48px rgba(42,42,36,0.12);
+      border-color: rgba(201,168,106,0.45);
+    }
+    .capability-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      color: var(--sand-deep);
+      margin-bottom: 0.9rem;
+    }
+    .capability-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-variant: small-caps;
+      letter-spacing: 0.03em;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--charcoal);
+    }
+    .capability-desc {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+      color: rgba(42,42,36,0.78);
+    }
+    .capability-proof {
+      margin-top: auto;
+      padding-top: 1.4rem;
+      font-size: 0.86rem;
+      line-height: 1.65;
+      color: rgba(42,42,36,0.68);
+    }
+    .capability-proof::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--sand);
+      opacity: 0.8;
+      margin-bottom: 1.1rem;
+    }
+    .capability-proof a {
+      color: var(--sand-deep);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(179,146,90,0.35);
+      transition: border-color 0.4s var(--ease);
+    }
+    .capability-proof a:hover { border-bottom-color: var(--sand-deep); }
+    .capability-proof-label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--sand-deep);
+      margin-bottom: 0.35rem;
+    }
+    .capabilities-grid .capability-card:nth-child(1) { --reveal-delay: 0s; }
+    .capabilities-grid .capability-card:nth-child(2) { --reveal-delay: 0.1s; }
+    .capabilities-grid .capability-card:nth-child(3) { --reveal-delay: 0.2s; }
+    .capabilities-grid .capability-card:nth-child(4) { --reveal-delay: 0.3s; }
 
     /* ── PROJECTS — cream ── */
     #projects {
@@ -811,6 +903,19 @@
 
     .footer-socials { display: flex; gap: 1.75rem; flex-wrap: wrap; }
 
+    .footer-info .footer-cv-note {
+      margin: 1.6rem 0 0;
+      font-size: 0.8rem;
+      color: rgba(42,42,36,0.55);
+    }
+    .footer-cv-note a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(42,42,36,0.22);
+      transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+    }
+    .footer-cv-note a:hover { color: var(--sand-deep); border-color: var(--sand-deep); }
+
     .footer-socials a,
     .footer-socials span {
       display: inline-block;
@@ -953,11 +1058,13 @@
       .stat { border-left: none; border-top: 1px solid rgba(42,42,36,0.14); }
       .stat:nth-child(4n+1) { border-left: none; }
       .stat:nth-child(-n+2) { border-top: none; }
-      #about, #projects { padding: 90px 6% 80px; }
+      #about, #capabilities, #projects { padding: 90px 6% 80px; }
       #testimonials { padding: 90px 6%; }
       footer { padding: 90px 6% 40px; }
       .about-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
+      .capabilities-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+      .capability-card { padding: 2rem 1.6rem 1.8rem; }
       .testimonials-grid { grid-template-columns: 1fr; }
       .faq-item { gap: 1rem; }
       .faq-trigger { padding: 0.6rem 0; margin: -0.6rem 0; }
@@ -1028,8 +1135,7 @@
     <li><a href="#projects">My Projects</a></li>
     <li><a href="media.html">Media</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#footer" class="btn-cv" onclick="prefillForm()">Request CV</a></li>
-    <li><a href="#footer">Contact Me</a></li>
+    <li><a href="#footer" class="btn-cta">Start a Conversation</a></li>
   </ul>
 </nav>
 </header>
@@ -1043,8 +1149,8 @@
     <h1 aria-label="Hi, I'm Hillary Kitel">
       <span aria-hidden="true"><span class="typed-prefix"></span><em class="typed-name"></em><span class="typing-cursor" id="typingCursor"></span></span>
     </h1>
-    <p class="hero-subtitle">I help mission-driven organisations deliver programmes, communicate their impact, and run the digital systems that scale it — bridging delivery, storytelling, and technology in the development sector.</p>
-    <a href="#about" class="hero-cta">About Me →</a>
+    <p class="hero-subtitle">I help mission-driven organisations deliver programmes, communicate their impact, and build the digital systems behind both — as part of a team or on a project.</p>
+    <a href="#capabilities" class="hero-cta">See What I Do →</a>
   </div>
   <div class="hero-img-wrap">
     <img src="Images/profile.jpg" alt="Portrait of Hillary Kitel, Programmes & Communications Professional" />
@@ -1061,7 +1167,7 @@
         <line x1="8" y1="28" x2="20" y2="28"/>
       </svg>
     </div>
-    <span class="stat-number" data-target="30" data-suffix="+">0</span>
+    <span class="stat-number" data-target="30" data-suffix="+">30+</span>
     <div class="stat-label">Policy Briefs &amp; Reports</div>
   </div>
   <a href="media.html" class="stat reveal" style="text-decoration:none;">
@@ -1071,7 +1177,7 @@
         <path d="M17 14 L27 20 L17 26 Z"/>
       </svg>
     </div>
-    <span class="stat-number" data-target="100" data-suffix="+">0</span>
+    <span class="stat-number" data-target="100" data-suffix="+">100+</span>
     <div class="stat-label">Multimedia Productions</div>
   </a>
   <div class="stat reveal">
@@ -1082,33 +1188,33 @@
         <circle cx="20" cy="20" r="16"/>
       </svg>
     </div>
-    <span class="stat-number" data-target="100000" data-suffix="K+">0</span>
+    <span class="stat-number" data-target="100000" data-suffix="K+">100K+</span>
     <div class="stat-label">Digital Interactions</div>
   </div>
-  <a href="photos.html" class="stat reveal" style="text-decoration:none;">
+  <div class="stat reveal">
     <div class="stat-icon" aria-hidden="true">
       <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2">
         <circle cx="15" cy="20" r="9"/>
         <circle cx="25" cy="20" r="9"/>
       </svg>
     </div>
-    <span class="stat-number" data-target="50" data-suffix="+">0</span>
+    <span class="stat-number" data-target="50" data-suffix="+">50+</span>
     <div class="stat-label">Media Partnerships</div>
-  </a>
+  </div>
 </section>
 
 <!-- ═══ ABOUT ═══ -->
 <section id="about">
   <div class="section-header reveal">
     <p class="section-label">About Me</p>
-    <h2 class="section-title">Programme Delivery. Communications Impact</h2>
+    <h2 class="section-title">Programme Delivery &amp; Communications Impact</h2>
   </div>
   <div class="about-grid reveal">
     <div class="about-text">
       <p>I'm a programmes and communications professional working where delivery, storytelling, and technology meet in the development sector. At the Drylands Learning and Capacity Building Initiative, I've led core activities across multi-organisation programmes — including convening the Youth Community of Practice — while driving the communications that carry our work to donors and policymakers.</p>
       <p>I bring an unusually complete toolkit to programme work. Alongside coordinating activities and stakeholder engagement, I've designed a monitoring and evaluation system, grown our digital reach by over 600%, led communications for the Pastoralist Leadership Summit (100,000+ interactions), produced 20 institutional reports, built four websites, and administer the full Microsoft 365 environment for our 20-person organisation. It means I can deliver a programme, communicate its impact, and build the systems that run it — without needing three separate hires.</p>
       <p>I'm deepening this foundation with a Master's in Project Planning and Management, building on my experience to move further into programme leadership. Fluent in English and Swahili, and a member of the Public Relations Society of Kenya.</p>
-      <a href="#footer" class="connect-link">Let's Connect →</a>
+      <a href="#footer" class="connect-link">Start a Conversation →</a>
     </div>
 
     <div class="skills-panel">
@@ -1158,21 +1264,60 @@
   </div>
 </section>
 
+<!-- ═══ CAPABILITIES ═══ -->
+<section id="capabilities" aria-labelledby="capabilities-title">
+  <div class="section-header capabilities-header reveal">
+    <p class="section-label">Capabilities</p>
+    <h2 class="section-title" id="capabilities-title">What I Do</h2>
+    <p>Four areas of practice, each grounded in work already delivered</p>
+  </div>
+
+  <div class="capabilities-grid">
+    <article class="capability-card reveal">
+      <p class="capability-num" aria-hidden="true">01</p>
+      <h3>Programme Delivery &amp; MEAL</h3>
+      <p class="capability-desc">Activity coordination, multi-stakeholder facilitation, and monitoring and evaluation systems that show what is working.</p>
+      <p class="capability-proof"><span class="capability-proof-label">In practice</span>Convened the Youth Community of Practice under the Hivos-funded Voice programme, and designed a KoboToolbox-integrated MEAL system.</p>
+    </article>
+
+    <article class="capability-card reveal">
+      <p class="capability-num" aria-hidden="true">02</p>
+      <h3>Strategic Communications</h3>
+      <p class="capability-desc">Communication strategy, multimedia, annual reports, and media relations that carry the work to donors and policymakers.</p>
+      <p class="capability-proof"><span class="capability-proof-label">In practice</span>Grew digital reach by 600%+, led communications for the Pastoralist Leadership Summit (100,000+ interactions), and secured coverage with Citizen TV, The Star, and PNTV.</p>
+    </article>
+
+    <article class="capability-card reveal">
+      <p class="capability-num" aria-hidden="true">03</p>
+      <h3>Web &amp; Digital Builds</h3>
+      <p class="capability-desc">Websites, data dashboards, and interactive tools built for real audiences and live data.</p>
+      <p class="capability-proof"><span class="capability-proof-label">In practice</span>Built four websites and live data dashboards, including the <a href="#projects">Community Land Dashboard and a MEAL dashboard</a>.</p>
+    </article>
+
+    <article class="capability-card reveal">
+      <p class="capability-num" aria-hidden="true">04</p>
+      <h3>Systems &amp; Administration</h3>
+      <p class="capability-desc">Microsoft 365 administration and the digital infrastructure a team runs on every day.</p>
+      <p class="capability-proof"><span class="capability-proof-label">In practice</span>Administers the full Microsoft 365 environment for a 20-person organisation.</p>
+    </article>
+  </div>
+</section>
+
 <!-- ═══ PROJECTS ═══ -->
 <section id="projects">
   <div class="projects-header reveal">
     <p class="section-label">Work</p>
     <h2 class="section-title">Featured Projects</h2>
-    <p>A selection of digital and communications projects that blend strategy, design, and measurable impact.</p>
+    <p>Selected work, each designed, built, and delivered end to end</p>
   </div>
 
   <div class="projects-grid">
     <div class="project-card reveal">
       <img src="Images/pls_website.jpg" alt="Pastoralist Leadership Summit Website" />
       <div class="project-body">
-        <p class="project-role">Lead Designer &amp; Developer</p>
+        <p class="project-role">Event Website · Design &amp; Build</p>
         <h3>Pastoralist Leadership Summit Website</h3>
-        <p>Official Summit site built for visibility, engagement, and real-time updates. Drove 100,000+ digital interactions nationally.</p>
+        <p>Delivered the official Summit website end to end — built for visibility, engagement, and real-time updates, and central to a campaign that reached 100,000+ digital interactions nationally.</p>
         <a href="https://dlci-hoa.org/pastoralist-leadership/pls/" target="_blank" class="project-link live">View Live Project ↗</a>
       </div>
     </div>
@@ -1180,9 +1325,9 @@
     <div class="project-card reveal">
       <img src="Images/community_dashboard.jpg" alt="Community Land Dashboard" />
       <div class="project-body">
-        <p class="project-role">Developer &amp; Data Strategist</p>
+        <p class="project-role">Data Dashboard · Land Governance</p>
         <h3>Community Land Dashboard</h3>
-        <p>Interactive web tool for tracking and visualizing community land data — enhancing transparency and governance in pastoralist regions.</p>
+        <p>Delivered a live, interactive dashboard that makes community land data easy to track and explore — bringing greater transparency to land governance in pastoralist regions.</p>
         <a href="https://kit3l.github.io/Community-Land-Dashboard/index.html" target="_blank" class="project-link live">View Live Project ↗</a>
       </div>
     </div>
@@ -1190,19 +1335,19 @@
     <div class="project-card reveal">
       <img src="Images/skipp_carrier.jpg" alt="Skipp Carrier Platform" />
       <div class="project-body">
-        <p class="project-role">Product Designer &amp; Developer</p>
+        <p class="project-role">Web Platform · Legal Sector</p>
         <h3>Skipp Carrier Platform</h3>
-        <p>Legal document delivery platform for law firms — built for speed, reliability, and secure client communication.</p>
-        <a href="#" class="project-link coming-soon">Link Coming Soon</a>
+        <p>Delivered a document delivery platform for law firms — designed and built for speed, reliability, and secure client communication.</p>
+        <a href="#footer" class="project-link live">Walkthrough on Request →</a>
       </div>
     </div>
 
     <div class="project-card reveal">
       <img src="Images/me_dashboard.jpg" alt="M&E Dashboard" />
       <div class="project-body">
-        <p class="project-role">Developer &amp; M&amp;E Consultant</p>
+        <p class="project-role">MEAL System · Monitoring &amp; Evaluation</p>
         <h3>Monitoring &amp; Evaluation Dashboard</h3>
-        <p>NGO-focused performance tracking dashboard integrating live project indicators, outcomes, and donor reporting metrics.</p>
+        <p>Delivered a live MEAL dashboard for NGO programmes — bringing KoboToolbox field data, project indicators, and donor reporting metrics into one place.</p>
         <a href="https://meal-system-production.up.railway.app/landing.html" target="_blank" class="project-link live">View Live Project ↗</a>
       </div>
     </div>
@@ -1314,7 +1459,7 @@
             </h3>
             <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">
               <div class="faq-panel-inner">
-                <p class="faq-answer">You can contact Hillary via the <a href="#footer">contact form</a> on this site, by <a href="mailto:pchumbakitel@gmail.com">email</a> at pchumbakitel@gmail.com, or through <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>. His CV is available on request — use the "Request CV" option and he will respond with a version tailored to the opportunity.</p>
+                <p class="faq-answer">You can contact Hillary via the <a href="#footer">contact form</a> on this site, by <a href="mailto:pchumbakitel@gmail.com">email</a> at pchumbakitel@gmail.com, or through <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>. His CV is <a href="#footer" onclick="prefillForm()">available on request</a>, and he will respond with a version tailored to the opportunity.</p>
               </div>
             </div>
           </div>
@@ -1324,14 +1469,14 @@
 
     <div class="footer-contact">
       <div class="footer-info reveal">
-        <h2>Let's work together</h2>
-        <p>Open to programme management, strategic communications, and NGO/development sector roles. Drop me a message and I'll get back to you promptly.</p>
+        <h2>Start a Conversation</h2>
+        <p>Whether you're building a team or commissioning a project, let's talk. Tell me a little about what you have in mind and I'll get back to you promptly.</p>
         <div class="footer-socials">
           <a href="mailto:pchumbakitel@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/kitel-hillary-19463020a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span onclick="this.textContent = '+254 713 546 522'">Phone</span>
-          <a href="#footer" onclick="prefillForm()">Request CV</a>
         </div>
+        <p class="footer-cv-note">For recruitment, a tailored CV is <a href="#footer" onclick="prefillForm()">available on request</a></p>
       </div>
 
       <div class="reveal">
@@ -1439,6 +1584,15 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Shared element refs — declared before any function that reads them runs
+  // (previously declared lower down, which threw a ReferenceError under
+  //  reduced-motion and halted the whole script, leaving the stat counters at 0)
+  const scrollProgressEl = document.getElementById('scrollProgress');
+  const heroSection = document.getElementById('top');
+  const heroText = document.querySelector('.hero-text');
+  const heroImgWrap = document.querySelector('.hero-img-wrap');
+  const heroSubtitle = document.querySelector('.hero-subtitle');
+
   // ── Hero headline typing animation ──
   (function typeHeroHeadline() {
     const prefixEl = document.querySelector('.typed-prefix');
@@ -1483,14 +1637,24 @@
   })();
 
   // ── Counter animation ──
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
+  // The final values are written into the HTML, so the real numbers show even
+  // if JS fails or the animation never runs. The animation only counts up to them.
+  function counterParts(el) {
+    const target = parseInt(el.dataset.target, 10) || 0;
     const isLarge = target >= 1000;
-    const displayTarget = isLarge ? Math.round(target / 1000) : target;
-    const displaySuffix = isLarge ? 'K+' : (el.dataset.suffix || '+');
+    return {
+      value: isLarge ? Math.round(target / 1000) : target,
+      suffix: isLarge ? 'K+' : (el.dataset.suffix || '+')
+    };
+  }
 
-    if (prefersReducedMotion) {
-      el.textContent = displayTarget + displaySuffix;
+  function animateCounter(el) {
+    if (el.dataset.animated) return;
+    el.dataset.animated = 'true';
+    const { value, suffix } = counterParts(el);
+
+    if (prefersReducedMotion || !window.requestAnimationFrame) {
+      el.textContent = value + suffix;
       return;
     }
 
@@ -1499,22 +1663,30 @@
     function step(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * displayTarget);
-      el.textContent = current + (progress < 1 ? '' : displaySuffix);
+      // Start from 1 rather than 0 so a zero never flashes on screen
+      const current = Math.max(1, Math.round(eased * value));
+      el.textContent = progress < 1 ? current : value + suffix;
       if (progress < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting && !e.target.dataset.animated) {
-        e.target.dataset.animated = 'true';
-        animateCounter(e.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('.stat-number').forEach(c => counterObserver.observe(c));
+  (function initCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(c => { const p = counterParts(c); c.textContent = p.value + p.suffix; });
+      return;
+    }
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCounter(e.target);
+          counterObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    counters.forEach(c => counterObserver.observe(c));
+  })();
 
   // ── Scroll reveal ──
   const revealObserver = new IntersectionObserver((entries) => {
@@ -1554,11 +1726,8 @@
   }
 
   // ── Scroll progress, hero parallax, nav active — batched into one rAF loop ──
-  const scrollProgressEl = document.getElementById('scrollProgress');
-  const heroSection = document.getElementById('top');
-  const heroText = document.querySelector('.hero-text');
-  const heroImgWrap = document.querySelector('.hero-img-wrap');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
+  // (element refs are declared near the top of this script so the typing
+  //  animation can call syncHeroImageWidth() safely before this point)
 
   // ── Keep hero photo width aligned with the rendered width of the subtitle column ──
   function syncHeroImageWidth() {
