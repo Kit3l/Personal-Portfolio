@@ -28,7 +28,7 @@ Tone rules:
 - Headings never end with a full stop.
 
 ## Real, Verified Metrics (use these — do not invent numbers)
-- Social media growth: Twitter 300→1,400+, LinkedIn 400→2,500+, Facebook +1,000 followers — cumulative 600%+ growth over 3 years, 500,000+ total platform impressions
+- Social media growth: Twitter 300→1,400+, LinkedIn 400→2,500+, Facebook +1,000 followers — cumulative 600%+ growth over 4 years, 500,000+ total platform impressions
 - Pastoralist Leadership Summit: 100,000+ digital interactions
 - 3 DLCI projects closed, improving lives of 100,000+ beneficiaries
 - 20 reports published, 10 policy/discussion briefs edited
